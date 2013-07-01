@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="webinterface.remote"
+  version="0.3.2"
+  name="Remote"
+  provider-name="Ishiro">
+  <requires> 
+    <import addon="xbmc.gui" version="2.11"/>
+  </requires>
+  <extension 
+    point="xbmc.gui.webinterface"/>
+  <extension point="xbmc.addon.metadata">
+    <summary>Remote for XBMC</summary>
+    <description>Remote for XBMC is a web-based control system for the XBMC platform accessible via smart phone and anything else that has its own browser.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
