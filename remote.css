@@ -120,6 +120,7 @@ section#add-to-homescreen p.add span {
 nav {
   display: block;
   position: absolute;
+  list-style-type:none;
 }
 nav a {
   display: block;
@@ -141,10 +142,10 @@ header nav b {
 }
 
 
-section#actions nav { bottom: 30px; left: 10px; width: 30px; height: 30px; }
+section#actions nav { top: 20px; left: 15px; width: 30px; height: 30px; }
 section#actions nav a { background-position: 0 0; }
 
-section#controller nav { bottom: 30px; left: 10px; width: 30px; height: 30px; }
+section#controller nav { top: 20px; left: 15px; width: 30px; height: 30px; }
 section#controller nav a { background-position: 0px -34px; }
 
 ul#list-nav {
@@ -193,18 +194,17 @@ section:target { z-index: 1; display: block; -webkit-transform: translateX(0%); 
 /*   Controller   */
 section#controller {
   background-color: #3d3d3d;
-  #background-image: url('images/backgroundmfp.png');
-  /*background-repeat: no-repeat;*/
   background-position: 0 0;
 }
 
 #pulldown {
-	width:28px;
-	height:22px;
+	left:50%;
+	margin-left:-25%;
+	width:50%;
+	height:40px;
+	top:10px;
 	background-color:#2e2e2e;
 	color:white;
-	left:50%;
-	margin-left:-14px;
 	display:none;
 	position:absolute;
 	text-align:center;
@@ -232,22 +232,15 @@ section#controller {
 
 #gestures_logo {
   position: absolute;
-  top: 25px;
-  left: 15px;
-  right: 15px;
+  top: 10%;
+  left: 10%;
+  right: 10%;
   bottom: 120px;
   z-index: 5;
   background-image: url('images/backgroundmfp.png');
-  #background: url('images/controller-gestures-logo.png') no-repeat center center;
-  # border: 2px solid grey;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
-
-#-moz-box-shadow:inset 5px 5px 5px #000;
-#-webkit-box-shadow:inset 5px 5px 5px #000;
-# box-shadow:inset 5px 5px 5px #000;
-
 }
 
 #gestures_logo1 {
@@ -278,23 +271,17 @@ border-radius: 10px;
 ul#controller_bar {
   position: absolute;
   bottom: 2%;
-  left: 5%;
+  left: 2%;
   height: 73px;
-  width: 30%;
-  ##max-width: 450px;
+  width: 31%;
   margin: 0;
   padding: 0;
   list-style-type: none;
   background: url('images/controller-bar.png') no-repeat 0 0;
   background-size: 100% 100%;  
-
 -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 border-radius: 20px;
-  
-  # -moz-# box-shadow: -5px -5px 5px #000;
-# -webkit-# box-shadow: -5px -5px 5px #000;
-# box-shadow: -5px -5px 5px #000;
 }
 
 ul#controller_bar li {
@@ -320,24 +307,18 @@ ul#controller_bar li a {
 ul#controller_bar2{
   position: absolute;
   bottom: 2%;
-  left: 52%;
+  left: 50%;
   margin: 0;
-  margin-left:-15%;
+  margin-left:-15.5%;
   height: 73px;
-  width: 30%;
-  ##max-width: 450px;
+  width: 31%;
   padding: 0;
   list-style-type: none;
   background: url('images/controller-bar2.png') no-repeat 0 0;
   background-size: 100% 100%;
-  
 -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 border-radius: 20px;
-  
-  # -moz-# box-shadow: -5px -5px 5px #000;
-# -webkit-# box-shadow: -5px -5px 5px #000;
-# box-shadow: -5px -5px 5px #000;
 }
 
 ul#controller_bar2 li {
@@ -363,10 +344,9 @@ ul#controller_bar2 li a {
 ul#controller_bar3{
   position: absolute;
   bottom: 2%;
-  right: 1%;
+  right: 2%;
   height: 73px;
-  width: 30%;
-  ##max-width: 450px;
+  width: 31%;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -376,10 +356,6 @@ ul#controller_bar3{
 -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 border-radius: 20px;
-  
-  # -moz-# box-shadow: -5px -5px 5px #000;
-# -webkit-# box-shadow: -5px -5px 5px #000;
-# box-shadow: -5px -5px 5px #000;
 }
 
 ul#controller_bar3 li {
@@ -404,9 +380,7 @@ ul#controller_bar3 li a {
 ul.links {
 position: relative;
 float:right;
-margin:15px 5px 5px;
-##top: 5px;
-##right: 1%;
+margin:30px 5px -45px;
 list-style:none;
 width:20%;
 font-size: 20pt;
@@ -416,17 +390,10 @@ background-color:rgba(5,5,5,0.55);
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
-##display:none;
-
-# -moz-# box-shadow: -5px -5px 5px #000;
-# -webkit-# box-shadow: -5px -5px 5px #000;
-# box-shadow: -5px -5px 5px #000;
-
 }
 
 ul.links li a {
 text-decoration:none;
-#line-height:200%;
 padding:3% 0;
 display:block;
 background:#2e2e2e;
@@ -460,7 +427,6 @@ bottom: 39%;
 list-style:none;
 width:100%;
 font-size: 25pt;
-##max-width:1280px;
 }
 
 ul#keyboardnum li a {
@@ -489,7 +455,6 @@ bottom: 29%;
 list-style:none;
 width:100%;
 font-size: 25pt;
-##max-width:1280px;
 }
 
 ul#keyboardtop li a {
@@ -518,7 +483,6 @@ left: 3%;
 list-style:none;
 width:100%;
 font-size: 25pt;
-##max-width:1280px;
 }
 
 ul#keyboardmid li a {
@@ -545,9 +509,8 @@ position: absolute;
 bottom: 9%;
 left: 5%;
 list-style:none;
-width:100%;;
+width:100%;
 font-size: 25pt;
-##max-width:1280px;
 }
 
 ul#keyboardbot li a {
@@ -574,9 +537,8 @@ position: absolute;
 bottom: -1%;
 left: 3%;
 list-style:none;
-width:100%;;
+width:100%;
 font-size: 25pt;
-##max-width:1280px;
 }
 
  
@@ -615,6 +577,7 @@ ul.iphone_ui_list {
   width:40%;
   float:left;
   min-width:310px;
+  top:60px;
 }
 
 ul.iphone_ui_list li {
@@ -838,9 +801,10 @@ ul#keyboardopt2 {
 ul.links {
   font-size:18pt;
   width:80%;
-  left:50%;
-  margin-left:-40%;
+  left:5%;
   display:none;
+  float:none;
+  top:40px;
   }
 
 ul.links li a {
@@ -854,26 +818,25 @@ ul#keyboardopt2 {
 }
 
 ul#controller_bar {
-  left: 10%;
+  left: 5%;
   height: 73px;
-  width: 85%;
+  width: 90%;
 }
 
 ul#controller_bar2 {
-  left: 10%;
+  left: 5%;
   height: 73px;
-  width: 80%;
-  top:50px;
+  width: 90%;
+  bottom:110px;
   display:none;
-  position:absolute;
   margin:0;
 }
 
 ul#controller_bar3 {
-  left: 10%;
+  left: 5%;
   height: 73px;
-  width: 80%;
-  top:150px;
+  width: 90%;
+  bottom:205px;
   display:none;
 }
 
@@ -881,16 +844,18 @@ ul#controller_bar3 {
   display: block;
   position: relative;
   height: 44px;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAsCAMAAACT+SJTAAAARVBMVEWFhYVjY2NhYWFcXFxYWFhUVFRRUVFMTExKSkpGRkZCQkI+Pj47Ozs5OTk1NTUxMTEvLy8qKiopKSkmJiYiIiIgICAAAAAZ+tVAAAAAIUlEQVQI12NgYGBkYmBiYmKEQgQbwmJgYkJhEQP/MjEDABbiAWt//crWAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-}
-
-#gestures_logo {
-  #top:50px;
-}
+  background-image: url(data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAsCAMAAACT+SJTAAAARVBMVEWFhYVjY2NhYWFcXFxYWFhUVFRRUVFMTExKSkpGRkZCQkI+Pj47Ozs5OTk1NTUxMTEvLy8qKiopKSkmJiYiIiIgICAAAAAZ+tVAAAAAIUlEQVQI12NgYGBkYmBiYmKEQgQbwmJgYkJhEQP/MjEDABbiAWt//crWAAAAAElFTkSuQmCC);
+  }
 
 #pulldown {
 	display:block;
+}
+
+ul.iphone_ui_list {
+  margin: 14px;
+  width:80%;
+  left:5%;
 }
 
 

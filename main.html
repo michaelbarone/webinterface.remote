@@ -3,7 +3,7 @@
 <head>
   <title>Remote</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="height:device-height, width=device-width, initial-scale=0.9, maximum-scale=0.9, minimum-scale=0.9, target-densitydpi=high-dpi, user-scalable=no" />
+  <meta name="viewport" content="height:device-height, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=medium-dpi, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon" href="images/app-icon.png" />
@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="remote.css" media="screen" />
 	<!--<script type="text/javascript" src="/js/jquery.js"></script>-->  
 	<script type="text/javascript" src="/js/jquery1.9.1.min.js"></script>  
+	<script type="text/javascript" src="/js/jquery.touchwipe.js"></script>  
 	<script type="text/javascript">
 /*
 function getcss(cssfile){
@@ -221,33 +222,69 @@ if( window.width < '801')
   <script type="text/javascript" >
   $(document).ready(function() {
  $("#pulldown").click(function () {
-      $('#controller_bar2').animate({margin-top:'150px',display:block},2000);
-		$("#pulldown").animate({margin-top:'150px'},2000);
+          var div1 = document.getElementById('playlist');
+          var div2 = document.getElementById('navigation');
+		  if (div1.style.display != 'block') {
+			div1.style.display = 'block';
+			div2.style.display = 'block';
+			} else {
+			div1.style.display = 'none';
+			div2.style.display = 'none';
+			}
     });
-function pulldownclick1() {
-          var div1 = document.getElementById('controller_bar2');
-          var div2 = document.getElementById('controller_bar3');
-		  if (div1.style.display == 'none') {
+
+	
+	
+	
+	function showhidelinks() {
+          var div1 = document.getElementById('playlist');
+          var div2 = document.getElementById('navigation');
+		  if (div1.style.display != 'block') {
 			div1.style.display = 'block';
 			div2.style.display = 'block';
 			} else {
 			div1.style.display = 'none';
 			div2.style.display = 'none';
 			}
-}
+	}
+
+	
+	
+	function showhidecontrollerbars() {
+			  var div1 = document.getElementById('controller_bar2');
+			  var div2 = document.getElementById('controller_bar3');
+			  var div3 = document.getElementById('gestures_logo');
+			  if (div1.style.display != 'block') {
+				div1.style.display = 'block';
+				div2.style.display = 'block';
+				div3.style.bottom = '300px';
+				} else {
+				div1.style.display = 'none';
+				div2.style.display = 'none';
+				div3.style.bottom = '120px';
+				}
+	}
+
+
+
+$("#controller_bar").touchwipe({
+     wipeUp: function() { showhidecontrollerbars(); },
+     wipeDown: function() { showhidecontrollerbars(); },
+     min_move_x: 10,
+     min_move_y: 10,	 
+     preventDefaultEvents: true
 });
-function pulldownclick() {
-$("#pulldown").animate({'margin-top':'150px'},2000);
-          var div1 = document.getElementById('controller_bar2');
-          var div2 = document.getElementById('controller_bar3');
-		  if (div1.style.display == 'none') {
-			div1.style.display = 'block';
-			div2.style.display = 'block';
-			} else {
-			div1.style.display = 'none';
-			div2.style.display = 'none';
-			}
-}
+
+$("#pulldown").touchwipe({
+     wipeUp: function() { showhidelinks(); },
+     wipeDown: function() { showhidelinks(); },
+     min_move_x: 10,
+     min_move_y: 10,	 
+     preventDefaultEvents: true
+});
+
+
+});
   </script>
 </body>
 </html>
