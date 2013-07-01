@@ -5,7 +5,7 @@ an expanded remote based on  Ishiro's iRemote-for-XBMC
 
 
 
-1.  Copy to your xbmc/addons/   directory
+1.  Copy to your ./xbmc/addons/webinterface.remote   directory
 2.  Activate XBMC webserver
       Start XBMC
       Go to 'System -> Settings -> Network -> Services'
