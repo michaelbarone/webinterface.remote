@@ -176,12 +176,7 @@ var XbmcRequest = {
     http_request.open("GET", url, true);
     http_request.send(null);
   },
-  
-  /*
-    type = 'JSON-RPC' or 'HTPP-API'
-    command = JSON-RPC method / HTTP-API 'key' or 'action'
-    params = JSON-RPC params / HTTP-API key to press or action to trigger
-  */
+
   send: function(type, command, params) {    
     switch(type) {
       case 'JSON-RPC':
@@ -518,7 +513,7 @@ var Remote = {
     if(gestures_state == true) {
       removeClass(gestures_logo, 'hidden');
       addClass(controller_pad, 'hidden');
-    }
+	}
     else {
       removeClass(controller_pad, 'hidden');
       addClass(gestures_logo, 'hidden');

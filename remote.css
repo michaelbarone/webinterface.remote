@@ -41,14 +41,6 @@ p {
 
 .hidden { display: none; }
 
-header {
-  display: block;
-  position: relative;
-  height: 44px;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAsCAMAAACT+SJTAAAARVBMVEWFhYVjY2NhYWFcXFxYWFhUVFRRUVFMTExKSkpGRkZCQkI+Pj47Ozs5OTk1NTUxMTEvLy8qKiopKSkmJiYiIiIgICAAAAAZ+tVAAAAAIUlEQVQI12NgYGBkYmBiYmKEQgQbwmJgYkJhEQP/MjEDABbiAWt//crWAAAAAElFTkSuQmCC);
-  background-repeat: repeat-x;
-}
-
 header h1 {
   position: absolute;
   top: 12px;
@@ -68,7 +60,6 @@ header h1 {
 
 /* Sections */
 section#add-to-homescreen,
-section#actions,
 section#controller {
   position: absolute;
   top: 0;
@@ -82,10 +73,6 @@ section#controller {
 
 section#controller { height: 100%; }
 
-section#add-to-homescreen,
-section#actions {
-    #background-image: url('images/backgroundmfp.png');
-}
 
 /* Add to homescreen */
 section#add-to-homescreen h1 {
@@ -132,21 +119,9 @@ nav a {
   z-index:101;
 }
 
-header nav b {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  font-size: 0.5em;
-  background: url('images/nav-bar.png') no-repeat;
-}
-
-
-section#actions nav { top: 20px; left: 15px; width: 30px; height: 30px; }
-section#actions nav a { background-position: 0 0; }
-
-section#controller nav { top: 20px; left: 15px; width: 30px; height: 30px; }
-section#controller nav a { background-position: 0px -34px; }
+nav { top: 20px; left: 15px; width: 30px; height: 30px; }
+nav a { background-position: 0px -34px; }
+nav a.selected { background-position: 0 0; }
 
 ul#list-nav {
 position: absolute;
@@ -211,7 +186,7 @@ section#controller {
 }
 
 
-#controller_img {
+.controller_img {
   position: absolute;
   top: 3%;
   left: 5%;
@@ -289,10 +264,10 @@ ul#controller_bar li {
   height: 100%;
 }
 li#back { width: 19.5%; }
-li#rewind { width: 17%; margin-left: .7%; }
+li#media_info { width: 17%; margin-left: .7%; }
 li#play { width: 23%; margin-left: .7%; }
 li#stop { width: 19.8%; margin-left: .7%; }
-li#forward { width: 17.7%; margin-left: .7%; }
+li#mute { width: 17.7%; margin-left: .7%; }
 
 ul#controller_bar li a {
   display: block;
@@ -326,8 +301,8 @@ ul#controller_bar2 li {
   height: 100%;
 }
 li#fullscreen { width: 19.5%; }
-li#media_info { width: 17%; margin-left: .7%; }
-li#mute { width: 23%; margin-left: .7%; }
+li#fs1 { width: 17%; margin-left: .7%; }
+li#fs2 { width: 23%; margin-left: .7%; }
 li#voldn { width: 19.8%; margin-left: .7%; }
 li#volup { width: 17.7%; margin-left: .7%; }
 
@@ -363,9 +338,9 @@ ul#controller_bar3 li {
   height: 100%;
 }
 li#subtitles { width: 19.5%; }
-li#fs { width: 17%; margin-left: .7%; }
-li#enqueue { width: 23%; margin-left: .7%; }
-li#skipbk { width: 19.8%; margin-left: .7%; }
+li#skpbk { width: 17%; margin-left: .7%; }
+li#rewind { width: 23%; margin-left: .7%; }
+li#forward { width: 19.8%; margin-left: .7%; }
 li#skipfd { width: 17.7%; margin-left: .7%; }
 
 ul#controller_bar3 li a {
@@ -565,21 +540,19 @@ li#enter2 { width: 130%; text-decoration:none; }
 
 
 /*   Actions   */
-ul.iphone_ui_list {
+li#gestures {
   position: relative;
-  margin: 14px 9px 14px 5%;
+  margin: 14px 0 0 0;
   padding: 3px;
   border: 2px solid #999;
   border-radius: 10px;
   background: #2e2e2e;
   list-style-type: none;
-  width:40%;
+  width:96%;
   float:left;
-  min-width:310px;
-  top:60px;
 }
 
-ul.iphone_ui_list li {
+li#gestures li {
   clear: both;
   height: 43px;
   font-size: 28pt;
@@ -587,17 +560,8 @@ ul.iphone_ui_list li {
   border-bottom: 1px solid #999;
   background: url('images/action_list_icons.png') no-repeat;
 }
-ul.iphone_ui_list li:last-child {
+li#gestures li:last-child {
   border-bottom: 0;
-}
-
-ul.iphone_ui_list li a,
-ul.iphone_ui_list li span.label {
-  display: block;
-  margin: 0;
-  padding: 2px 0 0px 47px;
-  color: #999;
-  text-decoration: none;  
 }
 
 li#watched { background-position: 7px 7px; }
@@ -608,13 +572,22 @@ li#shutdown { background-position: 7px -166px; }
 li#gestures { background: none; }
 
 /* ON/OFF toggle button */
-ul.iphone_ui_list li span.label {
+li#gestures a,
+li#gestures span.label {
+  display: block;
+  margin: 0;
+  padding: 2px 0 0px 47px;
+  color: #999;
+  text-decoration: none;  
+}
+
+li#gestures span.label {
   float: left;
   width: 50%;
   padding-left: 7px;
 }
 
-ul.iphone_ui_list li a.on-off-toggle {
+li#gestures a.on-off-toggle {
   display: block;
   float: right;
   width: 94px;
@@ -628,7 +601,7 @@ ul.iphone_ui_list li a.on-off-toggle {
 }
 
 a.off { background-position: 0 0; }
-a.on { background-position: 0 -29px; }
+a.on { background-position: 0 -29px !important; }
 
  /*
  landscape mode 
@@ -653,7 +626,7 @@ body.portrait section#controller header {
  border-bottom: 4px solid #333;
 }
 
-body.portrait #controller_img {
+body.portrait .controller_img {
   position: absolute;
   top: 60px;
   left: 35px;
@@ -723,7 +696,7 @@ body.portrait ul#keyboardopt2 {
 
 @media all and (max-width: 1300px) and (min-width: 1101px) {
 
-	#controller_img {
+	.controller_img {
 	  left:4%;
 	  top:4%;
 	}
@@ -746,7 +719,7 @@ body.portrait ul#keyboardopt2 {
 
 @media all and (max-width: 1100px) and (min-width: 801px) {
 
-	#controller_img {
+	.controller_img {
 	  left:4%;
 	  top:5%;
 	}
@@ -784,11 +757,13 @@ body.portrait ul#keyboardopt2 {
 
 @media all and (max-width: 800px) {
 
-	#controller_img {
+	.controller_img {
 	  left:50%;
 	  margin-left:-187.5px;
 	  top:5%;
 	}
+	
+	.controller_img.small { margin-left:-118.5px; }
 
 	#linkarea {
 	  top:1%;
@@ -836,6 +811,8 @@ body.portrait ul#keyboardopt2 {
 	  bottom:205px;
 	  display:none;
 	}
+	
+	#control_bar_swipe { display:block !important;position:absolute;bottom:0;left:0;right:0;height:100px;z-index:-1; }
 
 	#header {
 	  display: block;

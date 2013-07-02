@@ -9,36 +9,8 @@
   <link rel="apple-touch-icon" href="images/app-icon.png" />
   <link rel="apple-touch-startup-image" href="images/app-startup.png">
   <link rel="stylesheet" type="text/css" href="remote.css" media="screen" />
-	<!--<script type="text/javascript" src="/js/jquery.js"></script>-->  
 	<script type="text/javascript" src="/js/jquery1.9.1.min.js"></script>  
 	<script type="text/javascript" src="/js/jquery.touchwipe.js"></script>  
-	<script type="text/javascript">
-/*
-function getcss(cssfile){
-	loadcss = document.createElement('link')
-	loadcss.setAttribute("rel", "stylesheet")
-	loadcss.setAttribute("type", "text/css")
-	loadcss.setAttribute("href", cssfile)
-	document.getElementsByTagName("head")[0].appendChild(loadcss)
-}
-if(screen.width > '801' && screen.width < '1100')
-	{
-		getcss('1024x768.css')
-	}
-	else if(screen.width > '1100' && screen.width < '1300')
-	{
-		getcss('1280x800.css')
-	}
-	else if(screen.width < '801')
-	{
-		getcss('phone.css')
-	}	*/
-</script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-  //$('.links').addClass('hidden');
-});
-  </script>
 </head>
 <body>
   <!--
@@ -64,13 +36,11 @@ if(screen.width > '801' && screen.width < '1100')
     <p class="add"><span>To use it, add this page to your homescreen</span></p>
   </section>
   <section id="controller" class="hidden">
-<div id="pulldown" onClick="pulldownclick()">V</div>	
 <script type="text/javascript">
-//if( $(window).width() < '801')
-if( window.width < '801')
+if( $(window).width() < 800)
 	{
 		document.write("<div id='controller_pad' class='hidden'>")
-		document.write("<img src='images/controller-cross1.png' width='237' height='237' id='controller_img' usemap='#controller_map' />")
+		document.write("<img src='images/controller-cross.png' width='237' height='237' class='controller_img small' usemap='#controller_map' />")
 		document.write("</div>")
 		document.write("<map id='controller_map' name='controller_map' class='hidden'>")
 		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.up'); return false;\" alt='Up' shape='poly' coords='38,32,65,13,89,4,118,0,154,6,175,15,199,31,154,76,139,66,120,63,100,66,83,76,38,32' />")
@@ -79,11 +49,10 @@ if( window.width < '801')
 		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.right'); return false;\" alt='Right' shape='poly' coords='160,154,205,199,220,178,231,157,236,118,234,92,223,62,203,36,158,80,170,98,173,117,171,135,160,154' />")
 		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.select'); return false;\" alt='OK' shape='circle' coords='119,118,49' />")
 		document.write("</map>")
-		document.write("<div id='gestures_logo1' class='hidden'>&nbsp;</div>")
 	}
 	else {
 		document.write("<div id='controller_pad' class='hidden'>")
-		document.write("<img src='images/controller-cross.png' width='375' height='375' id='controller_img' usemap='#controller_map' />")
+		document.write("<img src='images/controller-cross.png' width='375' height='375' class='controller_img' usemap='#controller_map' />")
 		document.write("</div>")
 		document.write("<map id='controller_map' name='controller_map' class='hidden'>")
 		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.up'); return false;\" alt='Up' shape='poly' coords='72,37,101,17,137,6,193,0,239,6,269,17,312,48,244,118,208,98,188,95,157,100,129,120,58,49' />")
@@ -92,36 +61,35 @@ if( window.width < '801')
 		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.right'); return false;\" alt='Right' shape='poly' coords='261,252,324,314,345,285,361,251,375,188,369,146,351,96,321,56,250,128,268,157,274,187,268,213,253,244' />")
 		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.select'); return false;\" alt='OK' shape='circle' coords='187,187,78' />")
 		document.write("</map>")
-		document.write("<div id='gestures_logo' class='hidden'><img id='touchcross' src='images/controller-gestures-logo.png'></div>")		
-	}
-</script>	
-   <!-- <div id="gestures_logo" class="hidden">&nbsp;</div>-->
+	} 
+</script>
+		<div id='gestures_logo' class='hidden'><img id='touchcross' src='images/controller-gestures-logo.png'></div>	
 	      <nav>
-	  <ul id="list-nav">
-	  </ul>
-	  <li><a href="#actions" id="to_actions" onclick="iPhoneUI.transition(this);">Action List</a></li>
+	<!--  <ul id="list-nav"></ul>-->
+	  <li><a href="#" id="showlinks"></a></li>
 	  </nav>
 	<ul id="controller_bar3">
       <li id="subtitles"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetSubtitle','{\'subtitle\':\'off\'}'); return false;">Subtitles</a></li>
-      <li id="fs"><a href="#" onclick="XbmcRequest.send('HTTP-API','action','nothing'); return false;">nothing</a></li>
-      <li id="enqueue"><a href="#" onclick="XbmcRequest.send('HTTP-API','key','Q'); return false;">Enqueue</a></li>
       <li id="skipbk"><a href="#" onclick="XbmcRequest.send('HTTP-API','key',','); return false;">Skipbk</a></li>
+      <li id="rewind"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.SetSpeed','{\'playerid\':1, \'speed\':\'decrement\'}'); return false;">Rewind</a></li>
+      <li id="forward"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.SetSpeed','{\'playerid\':1, \'speed\':\'increment\'}'); return false;">Forward</a></li>
       <li id="skipfd"><a href="#" onclick="XbmcRequest.send('HTTP-API','key','.'); return false;">Skipfd</a></li>
     </ul>
 	<ul id="controller_bar2">
       <li id="fullscreen"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetFullscreen','{\'fullscreen\':\'toggle\'}'); return false;">FullScreen</a></li>
-      <li id="media_info"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Info'); return false;">Media info</a></li>
-      <li id="mute"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetMute','{\'mute\':\'toggle\'}'); return false;">Mute</a></li>
+      <li id="fs1"><a href="#" onclick="XbmcRequest.send('HTTP-API','action','nothing'); return false;">nothing</a></li>
+      <li id="fs2"><a href="#" onclick="XbmcRequest.send('HTTP-API','action','nothing'); return false;">nothing</a></li>
       <li id="voldn"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'decrement\'}'); return false;">voldn</a></li>
       <li id="volup"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'increment\'}'); return false;">volup</a></li>
     </ul>
     <ul id="controller_bar">
       <li id="back"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Back'); return false;">Back</a></li>
-      <li id="rewind"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.SetSpeed','{\'playerid\':1, \'speed\':\'decrement\'}'); return false;">Rewind</a></li>
+	  <li id="media_info"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Info'); return false;">Media info</a></li>
       <li id="play"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.PlayPause','{\'playerid\':1}'); return false;">Play/Pause</a></li>
       <li id="stop"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.Stop','{\'playerid\':1}'); return false;">Stop</a></li>
-      <li id="forward"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.SetSpeed','{\'playerid\':1, \'speed\':\'increment\'}'); return false;">Forward</a></li>
+      <li id="mute"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetMute','{\'mute\':\'toggle\'}'); return false;">Mute</a></li>
     </ul>
+	<div id="control_bar_swipe" style="display:none;"></div>
 	  <ul id="playlist" class="links">
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\':\'script.simpleplaylist\', \'params\': { \'mode\':\'addCurrentUrl\'}); return false;">Add to Playlist</a></li>	  
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
@@ -137,6 +105,14 @@ if( window.width < '801')
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'Plugins\']}'); return false;">Video Plugins</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'music\', \'parameters\':[\'Music\']}'); return false;">Music</a></li>
  	  </ul>
+	  <ul id="settings" class="links">
+      <li id="media_info2"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Info'); return false;">Media Info</a></li>
+      <li id="context_menu"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ContextMenu'); return false;">Context Menu</a></li>
+      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
+      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>
+      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
+	  <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
+      </ul>
 	  <div id="keyboardlayout">
 	  <ul id="keyboardnum">
 	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','131'); return false;">1</a></li>
@@ -196,11 +172,12 @@ if( window.width < '801')
 	  </ul>
 	  </div>
   </section>
+<!--
   <section id="actions" class="hidden">
 	  <nav>
       <a href="#controller" id="to_controller" onclick="iPhoneUI.transition(this,true);">Controller</a>
 	  </nav>
-     <ul class="iphone_ui_list">
+	  <ul class="iphone_ui_list">
       <li id="watched"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Mark Watched</a></li>
     </ul><ul class="iphone_ui_list">
       <li id="media_info2"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Info'); return false;">Media Info</a></li>
@@ -216,75 +193,70 @@ if( window.width < '801')
     <ul class="iphone_ui_list">
       <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
     </ul>
-   </section>
+   </section> 
+-->
 
   <script type="text/javascript" src="./js/remote.js"></script>
-  <script type="text/javascript" >
-  $(document).ready(function() {
- $("#pulldown").click(function () {
+<script type="text/javascript" >
+$(document).ready(function() {
+	$("#showlinks").click(function () {
           var div1 = document.getElementById('playlist');
           var div2 = document.getElementById('navigation');
+          var div3 = document.getElementById('settings');
 		  if (div1.style.display != 'block') {
 			div1.style.display = 'block';
 			div2.style.display = 'block';
+			div3.style.display = 'block';
+			$("#showlinks").addClass('selected');
 			} else {
 			div1.style.display = 'none';
 			div2.style.display = 'none';
+			div3.style.display = 'none';
+			$("#showlinks").removeClass('selected');
 			}
     });
 
-	
-	
-	
-	function showhidelinks() {
-          var div1 = document.getElementById('playlist');
-          var div2 = document.getElementById('navigation');
-		  if (div1.style.display != 'block') {
-			div1.style.display = 'block';
-			div2.style.display = 'block';
-			} else {
-			div1.style.display = 'none';
-			div2.style.display = 'none';
-			}
-	}
-
-	
-	
-	function showhidecontrollerbars() {
+	function hidecontrollerbars() {
 			  var div1 = document.getElementById('controller_bar2');
 			  var div2 = document.getElementById('controller_bar3');
 			  var div3 = document.getElementById('gestures_logo');
-			  if (div1.style.display != 'block') {
 				div1.style.display = 'block';
 				div2.style.display = 'block';
 				div3.style.bottom = '300px';
-				} else {
+	}
+	function showcontrollerbars() {
+			  var div1 = document.getElementById('controller_bar2');
+			  var div2 = document.getElementById('controller_bar3');
+			  var div3 = document.getElementById('gestures_logo');
 				div1.style.display = 'none';
 				div2.style.display = 'none';
 				div3.style.bottom = '120px';
-				}
 	}
 
+	$("#controller_bar_swipe").touchwipe({
+		 wipeUp: function() { showcontrollerbars(); },
+		 wipeDown: function() { hidecontrollerbars(); },
+		 min_move_x: 10,
+		 min_move_y: 10,	 
+		 preventDefaultEvents: true
+	});
+		
+	$("#controller_bar").touchwipe({
+		 wipeUp: function() { showcontrollerbars(); },
+		 wipeDown: function() { hidecontrollerbars(); },
+		 min_move_x: 10,
+		 min_move_y: 10,	 
+		 preventDefaultEvents: true
+	});
 
-
-$("#controller_bar").touchwipe({
-     wipeUp: function() { showhidecontrollerbars(); },
-     wipeDown: function() { showhidecontrollerbars(); },
-     min_move_x: 10,
-     min_move_y: 10,	 
-     preventDefaultEvents: true
+	$("#pulldown").touchwipe({
+		 wipeUp: function() { showhidelinks(); },
+		 wipeDown: function() { showhidelinks(); },
+		 min_move_x: 10,
+		 min_move_y: 10,	 
+		 preventDefaultEvents: true
+	});
 });
-
-$("#pulldown").touchwipe({
-     wipeUp: function() { showhidelinks(); },
-     wipeDown: function() { showhidelinks(); },
-     min_move_x: 10,
-     min_move_y: 10,	 
-     preventDefaultEvents: true
-});
-
-
-});
-  </script>
+</script>
 </body>
 </html>
