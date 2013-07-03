@@ -28,9 +28,7 @@ body {
 }
 
 a, img { border: 0; }
-a, map, img {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+a, map, img { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 p {
   margin: 10px 8px 10px 8px;
@@ -40,23 +38,6 @@ p {
 }
 
 .hidden { display: none; }
-
-header h1 {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  width: 150px;
-  height: 44px;
-  margin: 0 0 0 -75px;
-  padding: 0;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
 /* Sections */
 section#add-to-homescreen,
@@ -72,7 +53,6 @@ section#controller {
 }
 
 section#controller { height: 100%; }
-
 
 /* Add to homescreen */
 section#add-to-homescreen h1 {
@@ -91,8 +71,6 @@ section#add-to-homescreen p.add {
   padding-bottom: 5px;
   text-shadow: none;
   font-size: 10pt;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAMAAACgjTZZAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlP/AOW3MEoAAAAZSURBVAjXY2CAA0Y4zQhhMoJYjGAGmAUhAAFeABWDakZMAAAAAElFTkSuQmCC);
-  background-repeat: no-repeat;
   background-position: 50% bottom;
 }
 section#add-to-homescreen p.add span {
@@ -104,11 +82,8 @@ section#add-to-homescreen p.add span {
 }
 
 /* Nav */
-nav {
-  display: block;
-  position: absolute;
-  list-style-type:none;
-}
+nav { display: block;position: absolute;list-style-type:none; }
+
 nav a {
   display: block;
   width: 120%;
@@ -124,10 +99,7 @@ nav a { background-position: 0px -34px; }
 nav a.selected { background-position: 0 0; }
 
 /*   Controller   */
-section#controller {
-  background-color: #3d3d3d;
-  background-position: 0 0;
-}
+section#controller { background-color: #3d3d3d;background-position: 0 0; }
 
 .controller_img {
   position: absolute;
@@ -143,7 +115,7 @@ section#controller {
   right: 10%;
   bottom: 120px;
   z-index: 5;
-  background-image: url('images/backgroundmfp.png');
+  background-image: url('images/backgroundtouch.png');
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
@@ -187,39 +159,17 @@ ul.controllerbuttons li a {
   font-size: 0.5em;
 }
 
-ul#controller_bar {
-  left: 2%;
-  background: url('images/controller-bar.png') no-repeat 0 0;
-  background-size: 100% 100%;
-}
-li#back { width: 19.5%; }
-li#media_info { width: 17%; margin-left: .7%; }
-li#play { width: 23%; margin-left: .7%; }
-li#stop { width: 19.8%; margin-left: .7%; }
-li#mute { width: 17.7%; margin-left: .7%; }
+ul.controllerbuttons > li:nth-child(1) { width: 19.5%; }
+ul.controllerbuttons > li:nth-child(2) { width: 17%; margin-left: .7%; }
+ul.controllerbuttons > li:nth-child(3) { width: 23%; margin-left: .7%; }
+ul.controllerbuttons > li:nth-child(4) { width: 19.8%; margin-left: .7%; }
+ul.controllerbuttons > li:nth-child(5) { width: 17.7%; margin-left: .7%; }
 
-ul#controller_bar2{
-  left: 50%;
-  margin-left:-15.5%;
-  background: url('images/controller-bar2.png') no-repeat 0 0;
-  background-size: 100% 100%;
-}
-li#fullscreen { width: 19.5%; }
-li#fs1 { width: 17%; margin-left: .7%; }
-li#context_menu { width: 23%; margin-left: .7%; }
-li#voldn { width: 19.8%; margin-left: .7%; }
-li#volup { width: 17.7%; margin-left: .7%; }
+ul#controller_bar {  left: 2%;background: url('images/controller-bar.png') no-repeat 0 0;background-size: 100% 100%; }
 
-ul#controller_bar3{
-  right: 2%;
-  background: url('images/controller-bar3.png') no-repeat 0 0;
-  background-size: 100% 100%;
-}
-li#subtitles { width: 19.5%; }
-li#skpbk { width: 17%; margin-left: .7%; }
-li#rewind { width: 23%; margin-left: .7%; }
-li#forward { width: 19.8%; margin-left: .7%; }
-li#skipfd { width: 17.7%; margin-left: .7%; }
+ul#controller_bar2{ left: 50%;margin-left:-15.5%;background: url('images/controller-bar2.png') no-repeat 0 0;background-size: 100% 100%; }
+
+ul#controller_bar3{ right: 2%;background: url('images/controller-bar3.png') no-repeat 0 0;background-size: 100% 100%; }
 
 ul.links {
 position: relative;
@@ -238,18 +188,15 @@ border-radius: 10px;
 
 ul.links li a {
 text-decoration:none;
-padding:3% 0;
 display:block;
 background:#2e2e2e;
 color:#999;
 text-align:center;
 border-radius:5px;
+margin:3px;
 }
 
-ul.links li a:hover {
-background:#999999;
-color:#000;
-}
+ul.links li a:hover { background:#999999;color:#000; }
 
 #keyboardlayout {
 position:absolute;
@@ -262,28 +209,15 @@ z-index:-1;
 display:none;
 }
 
-ul#keyboardnum {
-bottom: 39%;
-}
+ul#keyboardnum { bottom: 39%; }
 
-ul#keyboardtop { 
-bottom: 29%;
-}
+ul#keyboardtop { bottom: 29%; }
 
-ul#keyboardmid {
-bottom: 19%;
-left: 3%;
-}
+ul#keyboardmid { bottom: 19%;left: 3%; }
 
-ul#keyboardbot {
-bottom: 9%;
-left: 5%;
-}
+ul#keyboardbot { bottom: 9%;left: 5%; }
 
-ul#keyboardopt2 {
-bottom: -1%;
-left: 3%;
-}
+ul#keyboardopt2 { bottom: -1%;left: 3%; }
 
 ul.keyboard {
 position: absolute;
@@ -292,10 +226,7 @@ width:100%;
 font-size: 25pt;
 }
 
-ul.keyboard li a:hover {
-background:#999999;
-color:#000;
-}
+ul.keyboard li a:hover { background:#999999;color:#000; }
  
 ul.keyboard li a {
 text-decoration:none;
@@ -316,35 +247,19 @@ li#space2 { width: 480%; text-decoration:none; }
 li#enter2 { width: 130%; text-decoration:none; }
 
 
-/*   Actions   */
-li#gestures,
+/*   Link buttons   */
 .links > li {
   position: relative;
   margin: 14px 0 0 0;
-  padding: 3px;
+ # padding: 3px;
   border: 2px solid #999;
   border-radius: 10px;
   background: #2e2e2e;
   list-style-type: none;
   width:96%;
   float:left;
+  line-height:150%;
 }
-
-li#gestures li {
-  clear: both;
-  height: 43px;
-  font-size: 28pt;
-  font-weight: bold;
-  border-bottom: 1px solid #999;
-  background: url('images/action_list_icons.png') no-repeat;
-}
-li#gestures li:last-child {
-  border-bottom: 0;
-}
-
-li#exit { background-position: 7px -122px; }
-li#shutdown { background-position: 7px -166px; }
-li#gestures { background: none; }
 
 /* ON/OFF toggle button */
 li#gestures a,
@@ -356,11 +271,7 @@ li#gestures span.label {
   text-decoration: none;  
 }
 
-li#gestures span.label {
-  float: left;
-  width: 50%;
-  padding-left: 7px;
-}
+li#gestures span.label { float: left;width: 50%;padding-left: 7px; }
 
 li#gestures a.on-off-toggle {
   display: block;
@@ -471,79 +382,42 @@ body.portrait ul#keyboardopt2 {
 
 @media all and (max-width: 1300px) and (min-width: 1101px) {
 
-	.controller_img {
-	  left:4%;
-	  top:4%;
-	}
+	.controller_img { left:4%;top:4%;	}
 
-	#linkarea {
-	  top:-1%;
-	  right:-1.5%;
-	}
+	#linkarea { top:-1%;right:-1.5%; }
 
-	ul.links li a {
-	  padding:3% 0;
-	}
+	ul.links li a { padding:3% 0; }
 
-	ul#keyboardopt2 {
-	  bottom:-3%;
-	}
+	ul#keyboardopt2 { bottom:-3%; }
 
 }
 
 
 @media all and (max-width: 1100px) and (min-width: 801px) {
 
-	.controller_img {
-	  left:4%;
-	  top:5%;
-	}
+	.controller_img {  left:4%;top:5%; }
 
-	#linkarea {
-	  top:1%;
-	  right:0%;
-	}
+	#linkarea { top:1%;right:0%; }
 
-	ul.links {
-	  font-size:18pt;
-	}
+	ul.links { font-size:18pt; }
 
-	ul.links li a {
-	  padding:0;
-	  left:4%;
-	  line-height:200%;
-	}
+	ul.links li a { padding:0;left:4%; }
 
-	ul#links2 {
-	  font-size:18pt;
-	}
+	ul#links2 { font-size:18pt; }
 
-	ul#links2 li a {
-	  padding:0;
-	  right:-1%;
-	  line-height:200%;
-	}
+	ul#links2 li a { padding:0;right:-1%;line-height:200%; }
 
-	ul#keyboardopt2 {
-	  bottom:-3%;
-	}
+	ul#keyboardopt2 { bottom:-3%; }
 
 }
 
 @media all and (max-width: 800px) {
 
-	.controller_img {
-	  left:50%;
-	  margin-left:-187.5px;
-	  top:5%;
-	}
+	.controller_img { left:50%;margin-left:-187.5px;top:5%;	}
 	
 	.controller_img.small { margin-left:-118.5px; }
 
-	#linkarea {
-	  top:1%;
-	  right:0%;
-	}
+	#linkarea { top:1%;right:0%; }
 
 	ul.links {
 	  font-size:18pt;
@@ -554,21 +428,11 @@ body.portrait ul#keyboardopt2 {
 	  top:40px;
 	  }
 
-	ul.links li a {
-	  padding:0;
-	  left:4%;
-	  line-height:200%;
-	}
+	ul.links li a { padding:0;left:4%; }
 
-	ul#keyboardopt2 {
-	  bottom:-3%;
-	}
+	ul#keyboardopt2 { bottom:-3%; }
 
-	ul#controller_bar {
-	  left: 5%;
-	  height: 73px;
-	  width: 90%;
-	}
+	ul#controller_bar { left: 5%;height: 73px;width: 90%;	}
 
 	ul#controller_bar2 {
 	  left: 5%;
@@ -597,14 +461,6 @@ body.portrait ul#keyboardopt2 {
 	  background-image: url(data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAsCAMAAACT+SJTAAAARVBMVEWFhYVjY2NhYWFcXFxYWFhUVFRRUVFMTExKSkpGRkZCQkI+Pj47Ozs5OTk1NTUxMTEvLy8qKiopKSkmJiYiIiIgICAAAAAZ+tVAAAAAIUlEQVQI12NgYGBkYmBiYmKEQgQbwmJgYkJhEQP/MjEDABbiAWt//crWAAAAAElFTkSuQmCC);
 	  }
 
-	#pulldown {
-		display:block;
-	}
-
-	ul.iphone_ui_list {
-	  margin: 14px;
-	  width:80%;
-	  left:5%;
-	}
+	ul.iphone_ui_list {  margin: 14px;width:80%;left:5%;	}
 
 }

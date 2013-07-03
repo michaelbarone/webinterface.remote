@@ -135,9 +135,6 @@ var iPhoneUI = {
     if((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) && !window.navigator.standalone) {
       addClass(document.getElementById('actions'), 'hidden');
       addClass(document.getElementById('controller'), 'hidden');
-     /* addClass(document.getElementById('keyboard'), 'hidden');
-	  addClass(document.getElementById('numpad'), 'hidden');
-	  addClass(document.getElementById('links'), 'hidden');*/
       removeClass(document.getElementById('add-to-homescreen'), 'hidden');
     }
     else {
@@ -183,15 +180,6 @@ var iPhoneUI = {
       addClass(current, 'hidden');
     }, 600);
   },
-
-  /*
-  orientation: function() {
-    var orient = (window.orientation==0 || window.orientation==180) ? 'portrait' : 'landscape';
-    document.body.className = orient;
-  },
-*/
-
-
 
   orientation: function() {
     if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) 
