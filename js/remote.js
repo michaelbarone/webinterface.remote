@@ -104,77 +104,18 @@ var XbmcRequest = {
     }
 	
     if(executeRequest) {
-   // var params = '{"jsonrpc": "2.0", "method": "'+ method +'",  "id": "1"}';
+	   var temp = params;
+	   var params2 = temp.replace(/\'/g,"\"");
 
-   var temp = params;
-   var params2 = temp.replace(/\'/g,"\"");
-
-    $.ajax({
-            type: 'POST',
-            url: this.getServerUrl()+'/jsonrpc',
-            data: '{"jsonrpc": "2.0", "method": "'+ method +'", "params": '+ params2 +',  "id": 1}',
-            success: function(result, textStatus, XMLHttpRequest){ JSON.stringify(result) },
-            dataType: 'json',
-            contentType: 'application/json'
-    });	
+		$.ajax({
+				type: 'POST',
+				url: this.getServerUrl()+'/jsonrpc',
+				data: '{"jsonrpc": "2.0", "method": "'+ method +'", "params": '+ params2 +',  "id": 1}',
+				success: function(result, textStatus, XMLHttpRequest){ JSON.stringify(result) },
+				dataType: 'json',
+				contentType: 'application/json'
+		});	
     }
-  },
-  
-  /* Send HTTP API request */
-  sendHttpAPIRequest: function (command_type, command) {
-    var url = null;
-    
-    switch(command_type) {
-      case 'action':
-        url = this.getServerUrl() + "/xbmcCmds/xbmcHttp?command=Action("+ command +")";
-        break;
-
-      case 'pc':
-        url = this.getServerUrl() + "/xbmcCmds/xbmcHttp?command=PlayerControl("+ command +")";
-        break;
-		
-      case 'numbers':
-        url = this.getServerUrl() + "/xbmcCmds/xbmcHttp?command=Action("+ command +")";
-        break;
-
-      case 'keyboard':
-        url = this.getServerUrl() + "/xbmcCmds/xbmcHttp?command=sendkey(0xf"+ command +")";
-        break;
-       
-	  case 'links': 
-        url = this.getServerUrl() + "/xbmcCmds/xbmcHttp?command=ExecBuiltIn(ReplaceWindow("+ command +"))";
-        break;
-		
-      case 'key':
-        if(command=='up') {
-          command = '&';
-        }
-        else if(command=='down') {
-          command = '(';
-        }
-        else if(command=='left') {
-          command = '%';
-        }
-        else if(command=='right') {
-          command = '\'';
-        }
-        else if(command=='enter') {
-          command = '\r';
-        }
-        else if(command=='back') {
-          command = '\b';
-        }
-        else {
-          //nothing
-        }
-        
-        url = this.getServerUrl() + "/xbmcCmds/xbmcHttp?command=SendKey("+ this.getKeyCode(command) +")";
-        break;
-    }
-    
-    var http_request = new XMLHttpRequest();
-    http_request.open("GET", url, true);
-    http_request.send(null);
   },
 
   send: function(type, command, params) {    
@@ -182,10 +123,6 @@ var XbmcRequest = {
       case 'JSON-RPC':
         params = params ? params : '{}';
         this.sendJSonRPCRequest(command, params);
-        break;
-      
-      case 'HTTP-API':
-        this.sendHttpAPIRequest(command, params);
         break;
     }
   }

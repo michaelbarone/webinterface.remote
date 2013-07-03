@@ -123,68 +123,11 @@ nav { top: 20px; left: 15px; width: 30px; height: 30px; }
 nav a { background-position: 0px -34px; }
 nav a.selected { background-position: 0 0; }
 
-ul#list-nav {
-position: absolute;
-top: -9px;
-left: 30px;
-list-style:none;
-margin:10px;
-padding:0;
-width:250px;
-}
-
-ul#list-nav li {
-display:inline;
-}
-
-ul#list-nav li a {
-text-decoration:none;
-padding:10px 0;
-width:80px;
-background:#2e2e2e;
-color:#eee;
-float:left;
-text-align:center;
-border-left:2px solid #999999;
-border-right:2px solid #999999;
-}
-
-ul#list-nav li a:hover {
-background:#999999;
-color:#000;
-}
-
-/* Transitions */
-section.slideToLeft,
-section.slideToRight,
-section:target {
-	-webkit-transition-duration: 1000ms;
-  -webkit-transition-property: -webkit-transform;
-}
-section.slideToLeft  { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); }
-section.slideToRight { -webkit-transform: translateX(100%); -moz-transform: translateX(100%); }
-section:target { z-index: 1; display: block; -webkit-transform: translateX(0%); -moz-transform: translateX(0%); }
-
-
 /*   Controller   */
 section#controller {
   background-color: #3d3d3d;
   background-position: 0 0;
 }
-
-#pulldown {
-	right:15px;
-	width:50px;
-	height:50px;
-	top:15px;
-	background-color:#2e2e2e;
-	color:white;
-	display:none;
-	position:absolute;
-	text-align:center;
-	z-index:100;
-}
-
 
 .controller_img {
   position: absolute;
@@ -192,17 +135,6 @@ section#controller {
   left: 5%;
   border: 0;
 }
-
-#controller_osd {
-  display: block;
-  position: absolute;
-  z-index: 1;
-  top: 65px;
-  left: 18px;
-  width: 43px;
-  height: 43px;
-}
-
 
 #gestures_logo {
   position: absolute;
@@ -212,20 +144,6 @@ section#controller {
   bottom: 120px;
   z-index: 5;
   background-image: url('images/backgroundmfp.png');
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
-border-radius: 10px;
-}
-
-#gestures_logo1 {
-  position: absolute;
-  top: 50px;
-  left: 10px;
-  right: 10px;
-  bottom: 100px;
-  z-index: 5;
-  background: url('images/controller-gestures-logo1.png') no-repeat center center;
-  border: 2px solid grey;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
@@ -242,26 +160,37 @@ border-radius: 10px;
    margin-left: -125px; /* Half the width */	
 }
 
-ul#controller_bar {
+ul.controllerbuttons {
   position: absolute;
   bottom: 2%;
-  left: 2%;
   height: 73px;
   width: 31%;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  background: url('images/controller-bar.png') no-repeat 0 0;
-  background-size: 100% 100%;  
--moz-border-radius: 20px;
+ -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 border-radius: 20px;
 }
 
-ul#controller_bar li {
+ul.controllerbuttons li {
   display: block;
   float: left;
   height: 100%;
+}
+
+ul.controllerbuttons li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  font-size: 0.5em;
+}
+
+ul#controller_bar {
+  left: 2%;
+  background: url('images/controller-bar.png') no-repeat 0 0;
+  background-size: 100% 100%;
 }
 li#back { width: 19.5%; }
 li#media_info { width: 17%; margin-left: .7%; }
@@ -269,87 +198,28 @@ li#play { width: 23%; margin-left: .7%; }
 li#stop { width: 19.8%; margin-left: .7%; }
 li#mute { width: 17.7%; margin-left: .7%; }
 
-ul#controller_bar li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  font-size: 0.5em;
-}
-
-
 ul#controller_bar2{
-  position: absolute;
-  bottom: 2%;
   left: 50%;
-  margin: 0;
   margin-left:-15.5%;
-  height: 73px;
-  width: 31%;
-  padding: 0;
-  list-style-type: none;
   background: url('images/controller-bar2.png') no-repeat 0 0;
   background-size: 100% 100%;
--moz-border-radius: 20px;
--webkit-border-radius: 20px;
-border-radius: 20px;
-}
-
-ul#controller_bar2 li {
-  display: block;
-  float: left;
-  height: 100%;
 }
 li#fullscreen { width: 19.5%; }
 li#fs1 { width: 17%; margin-left: .7%; }
-li#fs2 { width: 23%; margin-left: .7%; }
+li#context_menu { width: 23%; margin-left: .7%; }
 li#voldn { width: 19.8%; margin-left: .7%; }
 li#volup { width: 17.7%; margin-left: .7%; }
 
-ul#controller_bar2 li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  font-size: 0.5em;
-}
-
-
 ul#controller_bar3{
-  position: absolute;
-  bottom: 2%;
   right: 2%;
-  height: 73px;
-  width: 31%;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
   background: url('images/controller-bar3.png') no-repeat 0 0;
   background-size: 100% 100%;
-  
--moz-border-radius: 20px;
--webkit-border-radius: 20px;
-border-radius: 20px;
-}
-
-ul#controller_bar3 li {
-  display: block;
-  float: left;
-  height: 100%;
 }
 li#subtitles { width: 19.5%; }
 li#skpbk { width: 17%; margin-left: .7%; }
 li#rewind { width: 23%; margin-left: .7%; }
 li#forward { width: 19.8%; margin-left: .7%; }
 li#skipfd { width: 17.7%; margin-left: .7%; }
-
-ul#controller_bar3 li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  font-size: 0.5em;
-}
 
 ul.links {
 position: relative;
@@ -371,12 +241,9 @@ text-decoration:none;
 padding:3% 0;
 display:block;
 background:#2e2e2e;
-color:#eee;
+color:#999;
 text-align:center;
-border-left:2px solid #999999;
-border-right:2px solid #999999;
-border-top:2px solid #999999;
-border-bottom:2px solid #999999;
+border-radius:5px;
 }
 
 ul.links li a:hover {
@@ -396,127 +263,41 @@ display:none;
 }
 
 ul#keyboardnum {
-position: absolute;
 bottom: 39%;
-list-style:none;
-width:100%;
-font-size: 25pt;
 }
-
-ul#keyboardnum li a {
-text-decoration:none;
-padding:1% 0%;
-width:8.5%;
-background:#2e2e2e;
-color:#eee;
-float:left;
-text-align:center;
-border-left:2px solid #999999;
-border-right:2px solid #999999;
-border-top:2px solid #999999;
-border-bottom:2px solid #999999;
-}
-
-ul#keyboardnum li a:hover {
-background:#999999;
-color:#000;
-}
-
 
 ul#keyboardtop { 
-position: absolute;
 bottom: 29%;
-list-style:none;
-width:100%;
-font-size: 25pt;
-}
-
-ul#keyboardtop li a {
-text-decoration:none;
-padding:1% 0%;
-width:8.5%;
-background:#2e2e2e;
-color:#eee;
-float:left;
-text-align:center;
-border-left:2px solid #999999;
-border-right:2px solid #999999;
-border-top:2px solid #999999;
-border-bottom:2px solid #999999;
-}
-
-ul#keyboardtop li a:hover {
-background:#999999;
-color:#000;
 }
 
 ul#keyboardmid {
-position: absolute;
 bottom: 19%;
 left: 3%;
-list-style:none;
-width:100%;
-font-size: 25pt;
-}
-
-ul#keyboardmid li a {
-text-decoration:none;
-padding:1% 0%;
-width:8.5%;
-background:#2e2e2e;
-color:#eee;
-float:left;
-text-align:center;
-border-left:2px solid #999999;
-border-right:2px solid #999999;
-border-top:2px solid #999999;
-border-bottom:2px solid #999999;
-}
-
-ul#keyboardmid li a:hover {
-background:#999999;
-color:#000;
 }
 
 ul#keyboardbot {
-position: absolute;
 bottom: 9%;
 left: 5%;
-list-style:none;
-width:100%;
-font-size: 25pt;
-}
-
-ul#keyboardbot li a {
-text-decoration:none;
-padding:1% 0%;
-width:8.5%;
-background:#2e2e2e;
-color:#eee;
-float:left;
-text-align:center;
-border-left:2px solid #999999;
-border-right:2px solid #999999;
-border-top:2px solid #999999;
-border-bottom:2px solid #999999;
-}
-
-ul#keyboardbot li a:hover {
-background:#999999;
-color:#000;
 }
 
 ul#keyboardopt2 {
-position: absolute;
 bottom: -1%;
 left: 3%;
+}
+
+ul.keyboard {
+position: absolute;
 list-style:none;
 width:100%;
 font-size: 25pt;
 }
 
+ul.keyboard li a:hover {
+background:#999999;
+color:#000;
+}
  
-ul#keyboardopt2 li a {
+ul.keyboard li a {
 text-decoration:none;
 display:inline;
 padding:15px 5%;
@@ -529,10 +310,6 @@ border-right:2px solid #999999;
 border-top:2px solid #999999;
 border-bottom:2px solid #999999;
 }
-ul#keyboardopt2 li a:hover {
-background:#999999;
-color:#000;
-}
 
 li#back2 { width: 130%; text-decoration:none; }
 li#space2 { width: 480%; text-decoration:none; }
@@ -540,7 +317,8 @@ li#enter2 { width: 130%; text-decoration:none; }
 
 
 /*   Actions   */
-li#gestures {
+li#gestures,
+.links > li {
   position: relative;
   margin: 14px 0 0 0;
   padding: 3px;
@@ -564,9 +342,6 @@ li#gestures li:last-child {
   border-bottom: 0;
 }
 
-li#watched { background-position: 7px 7px; }
-li#media_info2 { background-position: 7px -37px; }
-li#context_menu { background-position: 7px -80px; }
 li#exit { background-position: 7px -122px; }
 li#shutdown { background-position: 7px -166px; }
 li#gestures { background: none; }
@@ -576,7 +351,7 @@ li#gestures a,
 li#gestures span.label {
   display: block;
   margin: 0;
-  padding: 2px 0 0px 47px;
+  padding: 5px 0 5px 47px;
   color: #999;
   text-decoration: none;  
 }
@@ -775,7 +550,7 @@ body.portrait ul#keyboardopt2 {
 	  width:80%;
 	  left:5%;
 	  display:none;
-	  float:none;
+	  float:left;
 	  top:40px;
 	  }
 
