@@ -1,16 +1,227 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">/*
-if (screen.width<721)
-{
-window.location="../m/main.html";
-}
-else
-{*/
-window.location="../main.html";/*
-}*/
-</script>
+  <title>Remote</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="height:device-height, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=medium-dpi, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" href="images/app-icon.png" />
+  <link rel="apple-touch-startup-image" href="images/app-startup.png">
+  <link rel="stylesheet" type="text/css" href="remote.css" media="screen" />
+	<script type="text/javascript" src="/js/jquery1.9.1.min.js"></script>  
+	<script type="text/javascript" src="/js/jquery.touchwipe.js"></script>  
 </head>
+<body>
+  <!--
+  Remote for XBMC
+  Copyright 2010 Furya-creations.net
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+  <section id="add-to-homescreen" class="hidden">
+    <h1>Remote for XBMC</h1>
+    <p>Welcome, you have successfully installed the remote !</p>
+    <p class="add"><span>To use it, add this page to your homescreen</span></p>
+  </section>
+  <section id="controller" class="hidden">
+<script type="text/javascript">
+if( $(window).width() < 600)
+	{
+		document.write("<div id='controller_pad' class='hidden'>")
+		document.write("<img src='images/controller-cross.png' width='237' height='237' class='controller_img small' usemap='#controller_map' />")
+		document.write("</div>")
+		document.write("<map id='controller_map' name='controller_map' class='hidden'>")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.up'); return false;\" alt='Up' shape='poly' coords='38,32,65,13,89,4,118,0,154,6,175,15,199,31,154,76,139,66,120,63,100,66,83,76,38,32' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.down'); return false;\" alt='Down' shape='poly' coords='82,158,36,203,62,223,89,233,116,236,148,233,175,222,201,203,156,158,143,167,119,173,98,169,82,158' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.left'); return false;\" alt='Left' shape='poly' coords='34,36,79,80,69,94,64,117,68,138,77,153,32,199,15,177,5,153,0,121,5,85,15,60,34,36' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.right'); return false;\" alt='Right' shape='poly' coords='160,154,205,199,220,178,231,157,236,118,234,92,223,62,203,36,158,80,170,98,173,117,171,135,160,154' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.select'); return false;\" alt='OK' shape='circle' coords='119,118,49' />")
+		document.write("</map>")
+	}
+	else {
+		document.write("<div id='controller_pad' class='hidden'>")
+		document.write("<img src='images/controller-cross.png' width='375' height='375' class='controller_img' usemap='#controller_map' />")
+		document.write("</div>")
+		document.write("<map id='controller_map' name='controller_map' class='hidden'>")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.up'); return false;\" alt='Up' shape='poly' coords='72,37,101,17,137,6,193,0,239,6,269,17,312,48,244,118,208,98,188,95,157,100,129,120,58,49' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.down'); return false;\" alt='Down' shape='poly' coords='119,259,55,321,97,350,134,366,184,375,236,366,276,350,317,319,247,249,225,264,191,273,155,266,128,249' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.left'); return false;\" alt='Left' shape='poly' coords='53,56,122,126,103,151,98,187,102,212,119,242,47,313,19,274,6,242,-3,189,3,138,19,101,37,71' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.right'); return false;\" alt='Right' shape='poly' coords='261,252,324,314,345,285,361,251,375,188,369,146,351,96,321,56,250,128,268,157,274,187,268,213,253,244' />")
+		document.write("<area href='#' onclick=\"XbmcRequest.send('JSON-RPC','Input.select'); return false;\" alt='OK' shape='circle' coords='187,187,78' />")
+		document.write("</map>")
+	} 
+</script>
+		<div id='gestures_logo' class='hidden'><img id='touchcross' src='images/controller-gestures-logo.png'></div>	
+	      <nav>
+	  <li><a href="#" id="showlinks"></a></li>
+	  </nav>
+	<ul id="controller_bar3" class="controllerbuttons">
+      <li id="subtitles"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetSubtitle','{\'subtitle\':\'off\'}'); return false;">Subtitles</a></li>
+      <li id="skipbk"><a href="#" onclick="XbmcRequest.send('HTTP-API','key',','); return false;">Skipbk</a></li>
+      <li id="rewind"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.SetSpeed','{\'playerid\':1, \'speed\':\'decrement\'}'); return false;">Rewind</a></li>
+      <li id="forward"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.SetSpeed','{\'playerid\':1, \'speed\':\'increment\'}'); return false;">Forward</a></li>
+      <li id="skipfd"><a href="#" onclick="XbmcRequest.send('HTTP-API','key','.'); return false;">Skipfd</a></li>
+    </ul>
+	<ul id="controller_bar2" class="controllerbuttons">
+      <li id="fullscreen"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetFullscreen','{\'fullscreen\':\'toggle\'}'); return false;">FullScreen</a></li>
+      <li id="fs1"><a href="#" onclick="XbmcRequest.send('HTTP-API','action','nothing'); return false;">nothing</a></li>
+      <li id="context_menu"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ContextMenu'); return false;">Context Menu</a></li>
+      <li id="voldn"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'decrement\'}'); return false;">voldn</a></li>
+      <li id="volup"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'increment\'}'); return false;">volup</a></li>
+    </ul>
+    <ul id="controller_bar" class="controllerbuttons">
+      <li id="back"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Back'); return false;">Back</a></li>
+	  <li id="media_info"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Info'); return false;">Media info</a></li>
+      <li id="play"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.PlayPause','{\'playerid\':1}'); return false;">Play/Pause</a></li>
+      <li id="stop"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Player.Stop','{\'playerid\':1}'); return false;">Stop</a></li>
+      <li id="mute"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetMute','{\'mute\':\'toggle\'}'); return false;">Mute</a></li>
+    </ul>
+	<div id="control_bar_swipe" style="display:none;"></div>
+	  <ul id="playlist" class="links">
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\':\'script.simpleplaylist\', \'params\': { \'mode\':\'addCurrentUrl\'}); return false;">Add to Playlist</a></li>	  
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','VideoLibrary.Scan'); return false;">Update Library</a></li>
+	  </ul>
+	  <ul id="navigation" class="links">
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Home'); return false;">Home Menu</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'TvShowTitles\']}'); return false;">TV Shows</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedEpisodes\']}'); return false;">Newest TV</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'MovieTitles\']}'); return false;">Movies</a></li>	
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedMovies\']}'); return false;">Newest Movies</a></li>	 
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'Plugins\']}'); return false;">Video Plugins</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'music\', \'parameters\':[\'Music\']}'); return false;">Music</a></li>
+ 	  </ul>
+	  <ul id="settings" class="links">
+      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
+      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>
+      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
+	  <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
+      </ul>
+	  <div id="keyboardlayout">
+	  <ul id="keyboardnum" class="keyboard">
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','131'); return false;">1</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','132'); return false;">2</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','133'); return false;">3</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','134'); return false;">4</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','135'); return false;">5</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','136'); return false;">6</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','137'); return false;">7</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','138'); return false;">8</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','139'); return false;">9</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','130'); return false;">0</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','12d'); return false;">-</a></li>
+	  </ul>
+	  <ul id="keyboardtop" class="keyboard">
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','171'); return false;">q</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','177'); return false;">w</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','165'); return false;">e</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','172'); return false;">r</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','174'); return false;">t</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','179'); return false;">y</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','175'); return false;">u</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','169'); return false;">i</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','16f'); return false;">o</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','170'); return false;">p</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','15c'); return false;">\</a></li>
+	  </ul>
+	  <ul id="keyboardmid" class="keyboard">
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','161'); return false;">a</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','173'); return false;">s</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','164'); return false;">d</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','166'); return false;">f</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','167'); return false;">g</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','168'); return false;">h</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','16a'); return false;">j</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','16b'); return false;">k</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','16c'); return false;">l</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','127'); return false;">'</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','122'); return false;">"</a></li>	  
+	  </ul>
+	  <ul id="keyboardbot" class="keyboard">
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','17a'); return false;">z</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','178'); return false;">x</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','163'); return false;">c</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','176'); return false;">v</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','162'); return false;">b</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','16e'); return false;">n</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','16d'); return false;">m</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','12c'); return false;">,</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','12e'); return false;">.</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','12f'); return false;">/</a></li>
+	  </ul>
+	  <ul id="keyboardopt2" class="keyboard">
+	  <li id="back2"><a href="#" onclick="XbmcRequest.send('HTTP-API','key','back'); return false;">Back</a></li>
+	  <li id="space2"><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','120'); return false;">Space</a></li>
+	  <li id="enter2"><a href="#" onclick="XbmcRequest.send('HTTP-API','key','enter'); return false;">Enter</a></li>
+	  </ul>
+	  </div>
+  </section>
+  <script type="text/javascript" src="./js/remote.js"></script>
+<script type="text/javascript" >
+$(document).ready(function() {
+	$("#showlinks").click(function () {
+          var div1 = document.getElementById('playlist');
+          var div2 = document.getElementById('navigation');
+          var div3 = document.getElementById('settings');
+		  if (div1.style.display != 'block') {
+			div1.style.display = 'block';
+			div2.style.display = 'block';
+			div3.style.display = 'block';
+			$("#showlinks").addClass('selected');
+			} else {
+			div1.style.display = 'none';
+			div2.style.display = 'none';
+			div3.style.display = 'none';
+			$("#showlinks").removeClass('selected');
+			}
+    });
 
+	function hidecontrollerbars() {
+			  var div1 = document.getElementById('controller_bar2');
+			  var div2 = document.getElementById('controller_bar3');
+			  var div3 = document.getElementById('gestures_logo');
+				div1.style.display = 'block';
+				div2.style.display = 'block';
+				div3.style.bottom = '300px';
+	}
+	function showcontrollerbars() {
+			  var div1 = document.getElementById('controller_bar2');
+			  var div2 = document.getElementById('controller_bar3');
+			  var div3 = document.getElementById('gestures_logo');
+				div1.style.display = 'none';
+				div2.style.display = 'none';
+				div3.style.bottom = '120px';
+	}
+
+	$("#controller_bar_swipe").touchwipe({
+		 wipeUp: function() { showcontrollerbars(); },
+		 wipeDown: function() { hidecontrollerbars(); },
+		 min_move_x: 10,
+		 min_move_y: 10,	 
+		 preventDefaultEvents: true
+	});
+		
+	$("#controller_bar").touchwipe({
+		 wipeUp: function() { showcontrollerbars(); },
+		 wipeDown: function() { hidecontrollerbars(); },
+		 min_move_x: 10,
+		 min_move_y: 10,	 
+		 preventDefaultEvents: true
+	});
+});
+</script>
+</body>
 </html>
