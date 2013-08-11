@@ -89,12 +89,8 @@
       <li id="mute"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetMute','{\'mute\':\'toggle\'}'); return false;">Mute</a></li>
     </ul>
 	<div id="control_bar_swipe" style="display:none;"></div>
-	  <ul id="playlist" class="links">
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\':\'script.simpleplaylist\', \'params\': { \'mode\':\'addCurrentUrl\'}); return false;">Add to Playlist</a></li>	  
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','VideoLibrary.Scan'); return false;">Update Library</a></li>
-	</ul>
+	<div id="overlaybuttons" style="display:none;">
+	<a href="#" id="linksselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;right:25px;top:15px;z-index:150;display:none"></a>
 	<ul id="navigation" class="links">
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Home'); return false;">Home Menu</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'TvShowTitles\']}'); return false;">TV Shows</a></li>
@@ -105,11 +101,16 @@
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'music\', \'parameters\':[\'Music\']}'); return false;">Music</a></li>
  	</ul>
 	<ul id="settings" class="links">
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\':\'script.simpleplaylist\', \'params\': { \'mode\':\'addCurrentUrl\'}); return false;">Add to Playlist</a></li>	  
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','VideoLibrary.Scan'); return false;">Update Library</a></li>
       <li id="sleep"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
-      <li id="reboot"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>
+      <!--<li id="reboot"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>-->
       <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
 	  <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
     </ul>
+	</div>
 	<div id="keyboardlayout">
 	  <ul id="keyboardnum" class="keyboard">
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','131'); return false;">1</a></li>
@@ -173,22 +174,68 @@
   <script type="text/javascript" >
 	$(document).ready(function() {
 		$("#showlinks").click(function () {
-			  var div1 = document.getElementById('playlist');
-			  var div2 = document.getElementById('navigation');
-			  var div3 = document.getElementById('settings');
+			  var div0 = document.getElementById('overlaybuttons');		
+			  var div1 = document.getElementById('navigation');
+			  var div2 = document.getElementById('settings');
+			  if (div0.style.display != 'block') {
+				div0.style.display = 'block';
+				$("#showlinks").addClass('selected');
+				} else {
+				div0.style.display = 'none';
+				$("#showlinks").removeClass('selected');
+				}
+		});	
+	
+	
+	/*
+		$("#showlinks").click(function () {
+			  var div0 = document.getElementById('linksselector');		
+			  var div1 = document.getElementById('navigation');
+			  var div2 = document.getElementById('settings');
+			if (window.innerWidth) > 801 {
 			  if (div1.style.display != 'block') {
 				div1.style.display = 'block';
 				div2.style.display = 'block';
-				div3.style.display = 'block';
+				div0.style.display = 'block';
 				$("#showlinks").addClass('selected');
 				} else {
+				div0.style.display = 'none';
 				div1.style.display = 'none';
 				div2.style.display = 'none';
-				div3.style.display = 'none';
 				$("#showlinks").removeClass('selected');
 				}
-		});
+			} else {
+			  if (div1.style.display != 'block') {
+				div1.style.display = 'block';
+				div2.style.display = 'none';
+				div0.style.display = 'block';
+				$("#showlinks").addClass('selected');
+				} else {
+				div0.style.display = 'none';
+				div1.style.display = 'none';
+				div2.style.display = 'none';
+				$("#showlinks").removeClass('selected');
+				}			
+			}
+		});*/
 
+		$("#linksselector").click(function () {
+			  var div0 = document.getElementById('linksselector');
+			  var div1 = document.getElementById('navigation');
+			  var div2 = document.getElementById('settings');
+			  if (div2.style.display != 'block') {
+				div2.style.display = 'block';
+				div1.style.display = 'none';
+				$("#linksselector").addClass('on');
+				$("#linksselector").removeClass('off');
+				} else {
+				div2.style.display = 'none';
+				div1.style.display = 'block';
+				$("#linksselector").addClass('off');
+				$("#linksselector").removeClass('on');				
+				}
+		});		
+		
 		function hidecontrollerbars() {
 				  var div1 = document.getElementById('controller_bar2');
 				  var div2 = document.getElementById('controller_bar3');

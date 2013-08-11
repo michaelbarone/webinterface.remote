@@ -27,6 +27,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.clear { clear:both; }
+
 a, img { border: 0; }
 a, map, img { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
@@ -94,7 +96,7 @@ nav a {
   z-index:101;
 }
 
-nav { top: 20px; left: 15px; width: 30px; height: 30px; }
+nav { top: 20px; left: 15px; width: 30px; height: 30px;z-index:100; }
 nav a { background-position: 0px -34px; }
 nav a.selected { background-position: 0 0; }
 
@@ -119,6 +121,7 @@ section#controller { background-color: #3d3d3d;background-position: 0 0; }
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
+overflow:hidden;
 }
 
 #touchcross {
@@ -174,12 +177,12 @@ ul#controller_bar3{ right: 2%;background: url('images/controller-bar3.png') no-r
 ul.links {
 position: relative;
 float:right;
-margin:30px 0px -45px;
+margin:0;
 list-style:none;
 width:20%;
 font-size: 20pt;
 z-index:50;
-padding:20px;
+padding:50px 0 20px;
 background-color:rgba(5,5,5,0.55);
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
@@ -256,13 +259,13 @@ li#enter2 { width: 130%; text-decoration:none; }
   border-radius: 10px;
   background: #2e2e2e;
   list-style-type: none;
-  width:96%;
+  width:90%;
+  left:5%;
   float:left;
   line-height:150%;
 }
 
 /* ON/OFF toggle button */
-li#gestures a,
 li#gestures span.label {
   display: block;
   margin: 0;
@@ -274,16 +277,19 @@ li#gestures span.label {
 li#gestures span.label { float: left;width: 50%;padding-left: 7px; }
 
 li#gestures a.on-off-toggle {
+ margin: 8px 8px 0 0;
+}
+
+a.on-off-toggle {
   display: block;
   float: right;
   width: 94px;
   height: 27px;
   padding: 0;
-  margin: 8px 8px 0 0;
-  color: transparent;
+  color: transparent !important;
   font-size: 0.5em;
-  background-image: url('images/on-off-button.png');
-  background-repeat: no-repeat;
+  background-image: url('images/on-off-button.png') !important;
+  background-repeat: no-repeat !important;
 }
 
 a.off { background-position: 0 0; }
@@ -421,13 +427,21 @@ body.portrait ul#keyboardopt2 {
 
 	ul.links {
 	  font-size:18pt;
-	  width:80%;
-	  left:5%;
-	  display:none;
+	  width:100%;
+	  left:0;
+	  #display:none;
 	  float:left;
-	  top:40px;
+	  top:0px;
 	  }
 
+	#linksselector { display:block !important; }
+	#settings.links { display:none; }
+	  
+	.links > li {
+	  width:70%;
+	  left:15%;
+	}	  
+	  
 	ul.links li a { padding:0;left:4%; }
 
 	ul#keyboardopt2 { bottom:-3%; }
