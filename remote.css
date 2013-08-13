@@ -288,8 +288,7 @@ a.on { background-position: 0 -29px !important; }
 
 @media all and (min-width: 1300px) {
 
-#navigation { display:block !important; }
-#settings { display:block !important; }
+	ul.links { display:block !important; }
 
 }
 
@@ -301,8 +300,7 @@ a.on { background-position: 0 -29px !important; }
 
 	ul#keyboardopt2 { bottom:-3%; }
 	
-	#navigation { display:block !important; }
-	#settings { display:block !important; }
+	ul.links { display:block !important; }
 
 }
 
@@ -313,15 +311,13 @@ a.on { background-position: 0 -29px !important; }
 
 	#linkarea { top:1%;right:0%; }
 
-	ul.links { font-size:18pt; }
+	ul.links { font-size:18pt;display:block !important; }
 
 	ul#keyboardopt2 { bottom:-3%; }
 	
-	#navigation { display:block !important; }
-
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 800px) and (max-height: 800px) {
 
 	.controller_img { left:50%;margin-left:-187.5px;top:5%;	}
 	
