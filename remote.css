@@ -326,6 +326,8 @@ a.on { background-position: 0 -29px !important; }
 	.controller_img { left:50%;margin-left:-187.5px;top:5%;	}
 	
 	.controller_img.small { margin-left:-118.5px; }
+	
+	#touchcross { top:0;left:0;width:80%;height:80%;margin:10%; }
 
 	#linkarea { top:1%;right:0%; }
 
@@ -377,6 +379,20 @@ a.on { background-position: 0 -29px !important; }
   transform: rotate(90deg);
 }*/
 
+
+
+ body.landscape #linksselector {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top:110px;
+  margin: 0 0 0 -15px !important;
+  left:0;
+}
+
+
 body.landscape .controller_img {
   position: absolute;
   top: 50%;
@@ -387,20 +403,22 @@ body.landscape .controller_img {
 
 body.landscape #gestures_logo {
   position: absolute;
-  top: 70px;
+  top: 20%;
   left: 15px;
   width: 45%;
   height:75%;
   border: 0;
 }
 
-body.landscape ul.controllerbuttons { width:45% !important;left:53% !important; }
+body.landscape ul.controllerbuttons { width:45% !important;left:53% !important;height:25%; }
 
-body.landscape ul#controller_bar2 { display:block; }
+body.landscape ul#controller_bar2 { display:block !important;bottom:35%; }
 
-body.landscape ul#controller_bar3 {  display:block; }
+body.landscape ul#controller_bar3 {  display:block !important;bottom:65%; }
 
-body.landscape .links > li { width:40%;margin:15px 0 0 15px;left:5%; }
+body.landscape .links > li { width:40%;margin:15px 0 0 15px;left:9%; }
+
+body.landscape .links { margin:-40px 0 0 0; }
 
 /*
 body.landscape ul#keyboardnum {
