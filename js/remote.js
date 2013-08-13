@@ -145,8 +145,7 @@ var iPhoneUI = {
       var anchor = 'controller';
       if(window.location.hash) {
         anchor = window.location.hash.replace('#','')
-      }
-      else {
+      } else {
         window.location = window.location+'#'+ anchor
       }
       
@@ -182,24 +181,18 @@ var iPhoneUI = {
   },
 
   orientation: function() {
-    if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) 
-      {
-      var orient = (window.orientation==0 || window.orientation==180) ? 'landscape' : 'landscape';
+    if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+      var orient = (window.orientation==0 || window.orientation==180) ? 'landscape' : 'portrait';
       document.body.className = orient;
-      }
-	else  
-	  {
-	  if (screen.width > screen.height)
-	    {
-	    var orient = 'landscape';
-	    document.body.className = orient;
-	    }
-	  else
-	    {
-	    var orient = 'portrait';    
-	    document.body.className = orient;
-        }
-      }
+    } else {
+		if (window.innerWidth > window.innerHeight) {
+			var orient = 'landscape';
+			document.body.className = orient;
+		} else {
+			var orient = 'portrait';
+			document.body.className = orient;
+		}
+    }
   },
   
   toggleButton: function(id, state) {
@@ -450,8 +443,19 @@ var Remote = {
 window.onload = function() {
   iPhoneUI.init();
   Remote.init();
-};
+iPhoneUI.orientation();
+  };
 
 window.onorientationchange = function() {
   iPhoneUI.orientation();
 };
+
+function reSize() {
+  iPhoneUI.orientation();
+};
+
+var resizeTimer;
+$(window).resize(function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(reSize, 100);
+});

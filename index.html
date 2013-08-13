@@ -37,7 +37,7 @@
   </section>
   <section id="controller">
 	<script type="text/javascript">
-	if( $(window).width() < 600)
+	if( $(window).width() < 600 || $(window).height() < 600)
 		{
 			document.write("<div id='controller_pad' class='hidden'>")
 			document.write("<img src='images/controller-cross.png' width='237' height='237' class='controller_img small' usemap='#controller_map' />")
@@ -90,7 +90,7 @@
     </ul>
 	<div id="control_bar_swipe" style="display:none;"></div>
 	<div id="overlaybuttons" style="display:none;">
-	<a href="#" id="linksselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;right:25px;top:15px;z-index:150;display:none"></a>
+	<a href="#" id="linksselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;margin:15px 25px 0 0;z-index:150;display:none"></a>
 	<ul id="navigation" class="links">
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Home'); return false;">Home Menu</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'TvShowTitles\']}'); return false;">TV Shows</a></li>

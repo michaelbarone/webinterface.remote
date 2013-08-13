@@ -13,7 +13,3 @@ an expanded remote based on  Ishiro's iRemote-for-XBMC
       4. Set your Port, or leave as default 8080
       5. Select "remote" as the 'Web interface'
 3.  direct your browser to http://xbmcip:port
-
-
-
-Please direct all comments to http://forum.xbmc.org/showthread.php?tid=169529
