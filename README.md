@@ -4,6 +4,9 @@ xbmc-remote
 an expanded remote based on  Ishiro's iRemote-for-XBMC
 
 
+Required:
+   For the "In Progress" links to work, you must copy the smart playlists in the included "required" folder to your userdata/playlists/video/  directory.  (this is the master user directory, even if you use profiles)
+
 
 1.  Copy to your ./xbmc/addons/webinterface.remote   directory
 2.  Activate XBMC webserver

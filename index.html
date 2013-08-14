@@ -93,13 +93,14 @@
 	<a href="#" id="linksselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;margin:15px 25px 0 0;z-index:150;display:none"></a>
 	<ul id="navigation" class="links">
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Home'); return false;">Home Menu</a></li>
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'TvShowTitles\']}'); return false;">TV Shows</a></li>
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedEpisodes\']}'); return false;">Newest TV</a></li>
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'MovieTitles\']}'); return false;">Movies</a></li>	
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedMovies\']}'); return false;">Newest Movies</a></li>	 
+      <li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'MovieTitles\']}'); return false;">Movies</a></li>	
+      <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedMovies\']}'); return false;">New</a></li>	 
+      <li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'TvShowTitles\']}'); return false;">TV Shows</a></li>
+      <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedEpisodes\']}'); return false;">New</a></li>
+	  <li id="inprogress"><span class="label" style="position:absolute;">In Progress:</span> <a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://masterprofile/playlists/video/In Progress Movies.xsp\']}'); return false;">Movies</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://masterprofile/playlists/video/In Progress Shows.xsp\']}'); return false;">Shows</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://masterprofile/playlists/video/In Progress Episodes.xsp\']}'); return false;">Episodes</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'Plugins\']}'); return false;">Video Plugins</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'music\', \'parameters\':[\'Music\']}'); return false;">Music</a></li>
- 	</ul>
+  </ul>
 	<ul id="settings" class="links">
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\':\'script.simpleplaylist\', \'params\': { \'mode\':\'addCurrentUrl\'}); return false;">Add to Playlist</a></li>	  
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
