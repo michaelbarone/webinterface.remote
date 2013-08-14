@@ -102,15 +102,17 @@
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'music\', \'parameters\':[\'Music\']}'); return false;">Music</a></li>
   </ul>
 	<ul id="settings" class="links">
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\':\'script.simpleplaylist\', \'params\': { \'mode\':\'addCurrentUrl\'}); return false;">Add to Playlist</a></li>	  
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'queue\'}'); return false;">Add To Playlist</a></li>
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'videoplaylist\'}'); return false;">View Playlist</a></li>
+     <!-- <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'favourites\'}'); return false;">Favorites</a></li>-->
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','VideoLibrary.Scan'); return false;">Update Library</a></li>
-      <li id="sleep"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
-      <!--<li id="reboot"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>-->
-      <li id="shutdown"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
 	  <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
-    </ul>
+      <!--<li id="reboot"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>-->
+      <li id="shutdown" class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
+      <li id="sleep" class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
+	</ul>
 	</div>
 	<div id="keyboardlayout">
 	  <ul id="keyboardnum" class="keyboard">

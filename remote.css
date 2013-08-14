@@ -261,7 +261,7 @@ width:55%;
 }
 
 .links > li.small {
-margin-left:10px;
+margin-left:4%;
 width:30%;
 }
 
@@ -274,7 +274,7 @@ li span.label {
   text-decoration: none;
 }
 
-li#inprogress > a { float:right;clear:both;padding:1px 3px; }
+li#inprogress > a { float:right;clear:both;padding:1px 5px; }
 
 li#gestures span.label { float: left;width: 50%;padding-left: 7px; }
 
