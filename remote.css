@@ -304,6 +304,14 @@ a.on { background-position: 0 -29px !important; }
 
 }
 
+@media all and (max-width: 1300px) {
+
+	ul.links { font-size:17pt; }
+	
+	li#gestures a.on-off-toggle { margin: 7px 8px 0 0; }
+
+}
+
 @media all and (max-width: 1300px) and (min-width: 1101px) {
 
 	.controller_img { left:4%;top:4%;	}
@@ -323,15 +331,9 @@ a.on { background-position: 0 -29px !important; }
 
 	#linkarea { top:1%;right:0%; }
 
-	ul.links { font-size:18pt;display:block !important; }
+	ul.links { display:block !important; }
 
 	ul#keyboardopt2 { bottom:-3%; }
-	
-}
-
-@media all and (max-width: 800px) {
-
-	ul.links { font-size:18pt; }
 	
 }
 
@@ -346,7 +348,6 @@ a.on { background-position: 0 -29px !important; }
 	#linkarea { top:1%;right:0%; }
 
 	ul.links {
-	  font-size:18pt;
 	  width:100%;
 	  left:0;
 	  float:left;
