@@ -66,6 +66,7 @@
 		<div id='gestures_logo' class='hidden'><img id='touchcross' src='images/controller-gestures-logo.png'></div>	
 	    <nav>
 			<li><a href="#" id="showlinks"></a></li>
+			<li><a href="#" id="shownumpad"></a></li>
 	    </nav>
 	<ul id="controller_bar3" class="controllerbuttons">
       <li id="subtitles"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetSubtitle','{\'subtitle\':\'off\'}'); return false;">Subtitles</a></li>
@@ -76,7 +77,7 @@
     </ul>
 	<ul id="controller_bar2" class="controllerbuttons">
       <li id="fullscreen"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetFullscreen','{\'fullscreen\':\'toggle\'}'); return false;">FullScreen</a></li>
-      <li id="fs1"><a href="#" onclick="XbmcRequest.send('HTTP-API','action','nothing'); return false;">nothing</a></li>
+      <li id="fs1"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ShowOSD'); return false;">OSD</a></li>
       <li id="context_menu"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ContextMenu'); return false;">Context Menu</a></li>
       <li id="voldn"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'decrement\'}'); return false;">voldn</a></li>
       <li id="volup"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'increment\'}'); return false;">volup</a></li>
@@ -90,7 +91,7 @@
     </ul>
 	<div id="control_bar_swipe" style="display:none;"></div>
 	<div id="overlaybuttons" style="display:none;">
-	<a href="#" id="linksselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;margin:15px 25px 0 0;z-index:150;display:none"></a>
+	<a href="#" id="linksselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;margin:15px 25px 0 0;z-index:150;"></a>
 	<ul id="navigation" class="links">
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Home'); return false;">Home Menu</a></li>
       <li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'MovieTitles\']}'); return false;">Movies</a></li>	
@@ -115,9 +116,36 @@
       <li id="shutdown" class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
       <li id="sleep" class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
 	</ul>
+	  <ul id="numpad" class="links">
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number1\'}'); return false;">1</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number2\'}'); return false;">2</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number3\'}'); return false;">3</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number4\'}'); return false;">4</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number5\'}'); return false;">5</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number6\'}'); return false;">6</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number7\'}'); return false;">7</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number8\'}'); return false;">8</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number9\'}'); return false;">9</a></li>
+		  <li class="small" style="border:none;"></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number0\'}'); return false;">0</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'enter\'}'); return false;">OK</a></li>
+	  </ul>
 	</div>
 	<div id="keyboardlayout">
 	  <ul id="keyboardnum" class="keyboard">
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number1\'}'); return false;">1</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number2\'}'); return false;">2</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number3\'}'); return false;">3</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number4\'}'); return false;">4</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number5\'}'); return false;">5</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number6\'}'); return false;">6</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number7\'}'); return false;">7</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number8\'}'); return false;">8</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number9\'}'); return false;">9</a></li>
+		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number0\'}'); return false;">0</a></li>
+		<!--  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number2\'}'); return false;">-</a></li>-->
+	  </ul>
+		<!--<ul id="keyboardnum" class="keyboard">
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','131'); return false;">1</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','132'); return false;">2</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','133'); return false;">3</a></li>
@@ -129,7 +157,7 @@
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','139'); return false;">9</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','130'); return false;">0</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','12d'); return false;">-</a></li>
-	  </ul>
+	  </ul>-->
 	  <ul id="keyboardtop" class="keyboard">
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','171'); return false;">q</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','177'); return false;">w</a></li>
@@ -179,18 +207,35 @@
   <script type="text/javascript" >
 	$(document).ready(function() {
 		$("#showlinks").click(function () {
-			  var div0 = document.getElementById('overlaybuttons');		
-			  var div1 = document.getElementById('navigation');
-			  var div2 = document.getElementById('settings');
+			  var div0 = document.getElementById('overlaybuttons');
 			  if (div0.style.display != 'block') {
 				div0.style.display = 'block';
 				$("#showlinks").addClass('selected');
+				$("#shownumpad").addClass('selected');
 				} else {
 				div0.style.display = 'none';
 				$("#showlinks").removeClass('selected');
+				$("#shownumpad").removeClass('selected');
+				$("#settings").removeClass('hideme');
+				$("#navigation").removeClass('hideme');
+				$("#linksselector").removeClass('hideme');
+				$("#numpad").removeClass('showme');
 				}
 		});	
-	
+
+		$("#shownumpad").click(function () {
+			  var div0 = document.getElementById('overlaybuttons');
+			  if (div0.style.display != 'block') {
+				$("#showlinks").addClass('selected');
+				$("#shownumpad").addClass('selected');
+				$("#settings").addClass('hideme');
+				$("#navigation").addClass('hideme');
+				$("#linksselector").addClass('hideme');				
+				$("#numpad").addClass('showme');	
+				div0.style.display = 'block';
+				}
+		});	
+		
 	
 	/*
 		$("#showlinks").click(function () {
