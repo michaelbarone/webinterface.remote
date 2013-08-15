@@ -96,7 +96,8 @@
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Home'); return false;">Home Menu</a></li>
       <li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'MovieTitles\']}'); return false;">Movies</a></li>	
       <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedMovies\']}'); return false;">New</a></li>	 
-	  <li id="inprogress"><span class="label" style="position:absolute;">In Progress:</span> <a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://home/addons/webinterface.remote/required/In Progress Movies.xsp\']}'); return false;">Movies</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://home/addons/webinterface.remote/required/In Progress Shows.xsp\']}'); return false;">Shows</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://home/addons/webinterface.remote/required/In Progress Episodes.xsp\']}'); return false;">Episodes</a></li>
+	  <!--<li id="inprogress"><span class="label" style="position:absolute;">In Progress:</span> <a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ReplaceWindow','{\'window\':\'video\', \'parameters\':[\'special://home/addons/webinterface.remote/required/In Progress Movies.xsp\']}'); return false;">Movies</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://home/addons/webinterface.remote/required/In Progress Shows.xsp\']}'); return false;">Shows</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://home/addons/webinterface.remote/required/In Progress Episodes.xsp\']}'); return false;">Episodes</a></li>-->
+	  <li id="inprogress"><span class="label" style="position:absolute;">In Progress:</span> <a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://masterprofile/playlists/video/In Progress Movies.xsp\']}'); return false;">Movies</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://masterprofile/playlists/video/In Progress Shows.xsp\']}'); return false;">Shows</a><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'special://masterprofile/playlists/video/In Progress Episodes.xsp\']}'); return false;">Episodes</a></li>	  
       <li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'TvShowTitles\']}'); return false;">TV Shows</a></li>
       <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'RecentlyAddedEpisodes\']}'); return false;">New</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'video\', \'parameters\':[\'Plugins\']}'); return false;">Video Plugins</a></li>
@@ -143,21 +144,7 @@
 		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number8\'}'); return false;">8</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number9\'}'); return false;">9</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number0\'}'); return false;">0</a></li>
-		<!--  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number2\'}'); return false;">-</a></li>-->
 	  </ul>
-		<!--<ul id="keyboardnum" class="keyboard">
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','131'); return false;">1</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','132'); return false;">2</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','133'); return false;">3</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','134'); return false;">4</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','135'); return false;">5</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','136'); return false;">6</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','137'); return false;">7</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','138'); return false;">8</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','139'); return false;">9</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','130'); return false;">0</a></li>
-		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','12d'); return false;">-</a></li>
-	  </ul>-->
 	  <ul id="keyboardtop" class="keyboard">
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','171'); return false;">q</a></li>
 		  <li><a href="#" onclick="XbmcRequest.send('HTTP-API','keyboard','177'); return false;">w</a></li>
@@ -204,121 +191,5 @@
 	</div>
   </section>
   <script type="text/javascript" src="./js/remote.js"></script>
-  <script type="text/javascript" >
-	$(document).ready(function() {
-		$("#showlinks").click(function () {
-			  var div0 = document.getElementById('overlaybuttons');
-			  if (div0.style.display != 'block') {
-				div0.style.display = 'block';
-				$("#showlinks").addClass('selected');
-				$("#shownumpad").addClass('selected');
-				} else {
-				div0.style.display = 'none';
-				$("#showlinks").removeClass('selected');
-				$("#shownumpad").removeClass('selected');
-				$("#settings").removeClass('hideme');
-				$("#navigation").removeClass('hideme');
-				$("#linksselector").removeClass('hideme');
-				$("#numpad").removeClass('showme');
-				}
-		});	
-
-		$("#shownumpad").click(function () {
-			  var div0 = document.getElementById('overlaybuttons');
-			  if (div0.style.display != 'block') {
-				$("#showlinks").addClass('selected');
-				$("#shownumpad").addClass('selected');
-				$("#settings").addClass('hideme');
-				$("#navigation").addClass('hideme');
-				$("#linksselector").addClass('hideme');				
-				$("#numpad").addClass('showme');	
-				div0.style.display = 'block';
-				}
-		});	
-		
-	
-	/*
-		$("#showlinks").click(function () {
-			  var div0 = document.getElementById('linksselector');		
-			  var div1 = document.getElementById('navigation');
-			  var div2 = document.getElementById('settings');
-			if (window.innerWidth) > 801 {
-			  if (div1.style.display != 'block') {
-				div1.style.display = 'block';
-				div2.style.display = 'block';
-				div0.style.display = 'block';
-				$("#showlinks").addClass('selected');
-				} else {
-				div0.style.display = 'none';
-				div1.style.display = 'none';
-				div2.style.display = 'none';
-				$("#showlinks").removeClass('selected');
-				}
-			} else {
-			  if (div1.style.display != 'block') {
-				div1.style.display = 'block';
-				div2.style.display = 'none';
-				div0.style.display = 'block';
-				$("#showlinks").addClass('selected');
-				} else {
-				div0.style.display = 'none';
-				div1.style.display = 'none';
-				div2.style.display = 'none';
-				$("#showlinks").removeClass('selected');
-				}			
-			}
-		});*/
-
-		$("#linksselector").click(function () {
-			  var div0 = document.getElementById('linksselector');
-			  var div1 = document.getElementById('navigation');
-			  var div2 = document.getElementById('settings');
-			  if (div2.style.display != 'block') {
-				div2.style.display = 'block';
-				div1.style.display = 'none';
-				$("#linksselector").addClass('on');
-				$("#linksselector").removeClass('off');
-				} else {
-				div2.style.display = 'none';
-				div1.style.display = 'block';
-				$("#linksselector").addClass('off');
-				$("#linksselector").removeClass('on');				
-				}
-		});		
-		
-		function hidecontrollerbars() {
-				  var div1 = document.getElementById('controller_bar2');
-				  var div2 = document.getElementById('controller_bar3');
-				  var div3 = document.getElementById('gestures_logo');
-					div1.style.display = 'block';
-					div2.style.display = 'block';
-					div3.style.bottom = '300px';
-		}
-		function showcontrollerbars() {
-				  var div1 = document.getElementById('controller_bar2');
-				  var div2 = document.getElementById('controller_bar3');
-				  var div3 = document.getElementById('gestures_logo');
-					div1.style.display = 'none';
-					div2.style.display = 'none';
-					div3.style.bottom = '120px';
-		}
-
-		$("#controller_bar_swipe").touchwipe({
-			 wipeUp: function() { showcontrollerbars(); },
-			 wipeDown: function() { hidecontrollerbars(); },
-			 min_move_x: 10,
-			 min_move_y: 10,	 
-			 preventDefaultEvents: true
-		});
-			
-		$("#controller_bar").touchwipe({
-			 wipeUp: function() { showcontrollerbars(); },
-			 wipeDown: function() { hidecontrollerbars(); },
-			 min_move_x: 10,
-			 min_move_y: 10,	 
-			 preventDefaultEvents: true
-		});
-	});
-  </script>
 </body>
 </html>

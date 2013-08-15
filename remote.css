@@ -216,8 +216,6 @@ z-index:-1;
 display:none;
 }
 
-ul#keyboardnum { bottom: 39%; }
-
 ul#keyboardtop { bottom: 29%; }
 
 ul#keyboardmid { bottom: 19%;left: 3%; }
@@ -479,10 +477,6 @@ margin:15px 0 0 7%;
 body.landscape .links { margin:-40px 0 0 0; }
 
 /*
-body.landscape ul#keyboardnum {
-  top: 510px;
-}
-
 body.landscape ul#keyboardtop {
   top: 580px;
 }

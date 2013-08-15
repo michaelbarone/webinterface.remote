@@ -459,3 +459,85 @@ $(window).resize(function() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(reSize, 100);
 });
+
+	$(document).ready(function() {
+		$("#showlinks").click(function () {
+			  var div0 = document.getElementById('overlaybuttons');
+			  if (div0.style.display != 'block') {
+				div0.style.display = 'block';
+				$("#showlinks").addClass('selected');
+				$("#shownumpad").addClass('selected');
+				} else {
+				div0.style.display = 'none';
+				$("#showlinks").removeClass('selected');
+				$("#shownumpad").removeClass('selected');
+				$("#settings").removeClass('hideme');
+				$("#navigation").removeClass('hideme');
+				$("#linksselector").removeClass('hideme');
+				$("#numpad").removeClass('showme');
+				}
+		});	
+
+		$("#shownumpad").click(function () {
+			  var div0 = document.getElementById('overlaybuttons');
+			  if (div0.style.display != 'block') {
+				$("#showlinks").addClass('selected');
+				$("#shownumpad").addClass('selected');
+				$("#settings").addClass('hideme');
+				$("#navigation").addClass('hideme');
+				$("#linksselector").addClass('hideme');				
+				$("#numpad").addClass('showme');	
+				div0.style.display = 'block';
+				}
+		});	
+
+		$("#linksselector").click(function () {
+			  var div0 = document.getElementById('linksselector');
+			  var div1 = document.getElementById('navigation');
+			  var div2 = document.getElementById('settings');
+			  if (div2.style.display != 'block') {
+				div2.style.display = 'block';
+				div1.style.display = 'none';
+				$("#linksselector").addClass('on');
+				$("#linksselector").removeClass('off');
+				} else {
+				div2.style.display = 'none';
+				div1.style.display = 'block';
+				$("#linksselector").addClass('off');
+				$("#linksselector").removeClass('on');				
+				}
+		});		
+		
+		function hidecontrollerbars() {
+				  var div1 = document.getElementById('controller_bar2');
+				  var div2 = document.getElementById('controller_bar3');
+				  var div3 = document.getElementById('gestures_logo');
+					div1.style.display = 'block';
+					div2.style.display = 'block';
+					div3.style.bottom = '300px';
+		}
+		function showcontrollerbars() {
+				  var div1 = document.getElementById('controller_bar2');
+				  var div2 = document.getElementById('controller_bar3');
+				  var div3 = document.getElementById('gestures_logo');
+					div1.style.display = 'none';
+					div2.style.display = 'none';
+					div3.style.bottom = '120px';
+		}
+
+		$("#controller_bar_swipe").touchwipe({
+			 wipeUp: function() { showcontrollerbars(); },
+			 wipeDown: function() { hidecontrollerbars(); },
+			 min_move_x: 10,
+			 min_move_y: 10,	 
+			 preventDefaultEvents: true
+		});
+			
+		$("#controller_bar").touchwipe({
+			 wipeUp: function() { showcontrollerbars(); },
+			 wipeDown: function() { hidecontrollerbars(); },
+			 min_move_x: 10,
+			 min_move_y: 10,	 
+			 preventDefaultEvents: true
+		});
+	});
