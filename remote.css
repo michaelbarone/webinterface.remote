@@ -248,7 +248,7 @@ li#enter2 { width: 130%; text-decoration:none; }
 
 
 /*   Link buttons   */
-.links > li {
+.links > li, .links > div > li {
   position: relative;
   margin: 14px 0 0 0;
   border: 2px solid #999;
@@ -270,7 +270,11 @@ margin-left:4%;
 width:30%;
 }
 
-#numpad.links > li.small {
+#numpad.links > div > li {
+margin:14px 0;
+}
+
+#numpad.links > div > li.small {
 margin:14px 2%;
 width:25%;
 }
@@ -341,7 +345,7 @@ a.on { background-position: 0 -29px !important; }
 
 	#linkarea { top:1%;right:0%; }
 
-	ul.links { display:block !important; }
+	ul.links { display:block; }
 
 	ul#keyboardopt2 { bottom:-3%; }
 	
@@ -373,7 +377,7 @@ a.on { background-position: 0 -29px !important; }
 	#settings.links { display:none; }
 	#numpad.links { display:none; }
 	  
-	.links > li { width:70%;left:15%; }
+	.links > li, .links > div > li { width:70%;left:15%; }
 
 	.links > li.big {
 	width:45%;
@@ -383,12 +387,18 @@ a.on { background-position: 0 -29px !important; }
 	margin-left:3.5%;
 	width:21%;
 	}
+	
+	#numpad.links > div > li {
+	margin:14px;
+	}	
 
-	#numpad.links > li.small {
+	#numpad.links > div > li.small {
 	margin-left: 0;
 	margin-right:5%;
 	width: 20%;
 	}
+	
+	#numpadselector { left:75px !important; }
 
 	ul#keyboardopt2 { bottom:-3%; }
 
@@ -433,6 +443,17 @@ a.on { background-position: 0 -29px !important; }
   top:110px;
   margin: 0 0 0 -15px !important;
   left:0;
+}
+
+ body.landscape #numpadselector {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top:150px;
+  margin: 0 0 0 -15px !important;
+  left:0 !important;
 }
 
 

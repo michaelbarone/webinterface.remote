@@ -491,6 +491,20 @@ $(window).resize(function() {
 				}
 		});	
 
+		$("#numpadselector").click(function () {
+			  if ($("#numpadsms").hasClass('hideme')) {
+				$("#numpadselector").addClass('on');
+				$("#numpadselector").removeClass('off');
+				$("#numpadsms").removeClass('hideme');
+				$("#numpadnormal").addClass('hideme');
+				} else {
+				$("#numpadselector").addClass('off');
+				$("#numpadselector").removeClass('on');
+				$("#numpadsms").addClass('hideme');
+				$("#numpadnormal").removeClass('hideme');				
+				}
+		});	
+
 		$("#linksselector").click(function () {
 			  var div0 = document.getElementById('linksselector');
 			  var div1 = document.getElementById('navigation');
@@ -506,8 +520,8 @@ $(window).resize(function() {
 				$("#linksselector").addClass('off');
 				$("#linksselector").removeClass('on');				
 				}
-		});		
-		
+		});	
+
 		function hidecontrollerbars() {
 				  var div1 = document.getElementById('controller_bar2');
 				  var div2 = document.getElementById('controller_bar3');

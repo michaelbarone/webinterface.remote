@@ -118,6 +118,8 @@
       <li id="sleep" class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
 	</ul>
 	  <ul id="numpad" class="links">
+	  	<a href="#" id="numpadselector" onclick="return false;" class="on-off-toggle off" style="position:absolute;margin:-30px 0 0 0;left:15px;z-index:150;"></a>
+		<div id="numpadnormal">
 		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number1\'}'); return false;">1</a></li>
 		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number2\'}'); return false;">2</a></li>
 		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number3\'}'); return false;">3</a></li>
@@ -130,8 +132,23 @@
 		  <li class="small" style="border:none;"></li>
 		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number0\'}'); return false;">0</a></li>
 		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'enter\'}'); return false;">OK</a></li>
+		</div>
+		<div id="numpadsms" class="hideme">
+		  <li style="#border:none;"><span class="label">Jump to Letter:</span></li>
+		  <li class="small" style="border:none;"></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms2\'}'); return false;">abc2</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms3\'}'); return false;">def3</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms4\'}'); return false;">ghi4</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms5\'}'); return false;">jkl5</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms6\'}'); return false;">mno6</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms7\'}'); return false;">prs7</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms8\'}'); return false;">tuv8</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'jumpsms9\'}'); return false;">wxyz9</a></li>
+		  <!--<li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number0\'}'); return false;">0</a></li>
+		  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'enter\'}'); return false;">OK</a></li>-->		
+		</div>
 	  </ul>
-	</div>
+    </div>
 	<div id="keyboardlayout">
 	  <ul id="keyboardnum" class="keyboard">
 		  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'number1\'}'); return false;">1</a></li>
