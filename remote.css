@@ -334,8 +334,6 @@ a.on { background-position: 0 -29px !important; }
 
 	ul#keyboardopt2 { bottom:-3%; }
 	
-	ul.links { display:block !important; }
-
 }
 
 
@@ -354,6 +352,14 @@ a.on { background-position: 0 -29px !important; }
 @media all and (min-width: 800px) {
 
 	#linksselector { display:none !important; }
+	ul.links { display:block !important; }	
+
+}
+
+@media all and (max-width: 565px) {
+
+	ul.links { font-size:13pt; }
+	li#gestures a.on-off-toggle { margin: 2px 4px 0 0; }	
 
 }
 
@@ -389,7 +395,7 @@ a.on { background-position: 0 -29px !important; }
 	}
 	
 	#numpad.links > div > li {
-	margin:14px;
+	margin:14px 14px 14px 30px;
 	}	
 
 	#numpad.links > div > li.small {
