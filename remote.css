@@ -269,6 +269,9 @@ margin-left:4%;
 width:30%;
 }
 
+#linksselector { position:absolute;margin:20px 10px 0 0;z-index:150; }
+#numpadselector { position:absolute;margin:-30px 0 0 0;left:15px;z-index:150; }
+
 #numpad.links > div > li {
 margin:14px 0;
 }
@@ -336,7 +339,7 @@ a.on { background-position: 0 -29px !important; }
 }
 
 
-@media all and (max-width: 1100px) and (min-width: 801px) {
+@media all and (max-width: 1100px) and (min-width: 601px) {
 
 	.controller_img {  left:4%;top:5%; }
 
@@ -348,11 +351,21 @@ a.on { background-position: 0 -29px !important; }
 	
 }
 
-@media all and (min-width: 800px) {
+@media all and (max-width: 775px) {
+
+	#settings.links { display:none; }
+	
+}
+
+@media all and (min-width: 751px) {
 
 	#linksselector { display:none !important; }
+	#numpadselector { display:none !important; }
 	ul.links { display:block !important; }	
-
+	#numpadsms > li:first-child { display:none !important; }
+	#numpadsms { display:block !important; }
+	#numpad.links { max-width:375px; }
+	
 }
 
 @media all and (max-width: 565px) {
@@ -362,7 +375,7 @@ a.on { background-position: 0 -29px !important; }
 
 }
 
-@media all and (max-width: 800px) and (max-height: 800px) {
+@media all and (max-width: 600px) and (max-height: 600px) {
 
 	.controller_img { left:50%;margin-left:-187.5px;top:5%;	}
 	
@@ -381,7 +394,6 @@ a.on { background-position: 0 -29px !important; }
 	  position:absolute;
 	  }
 
-	#settings.links { display:none; }
 	#numpad.links { display:none; }
 	  
 	.links > li, .links > div > li { width:70%;left:15%; }
@@ -427,7 +439,9 @@ a.on { background-position: 0 -29px !important; }
 
 	ul.iphone_ui_list {  margin: 14px;width:80%;left:5%;	}
 
-	
+}
+
+@media all and (max-width: 600px) and (max-height: 400px) {
  /*
  landscape mode */
 /*
