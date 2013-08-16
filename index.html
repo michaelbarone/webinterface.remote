@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Remote</title>
+  <title>XBMC Remote</title>
   <meta charset="utf-8">
   <meta name="viewport" content="height:device-height, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=medium-dpi, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,7 +15,6 @@
 <body>
   <!--
   Remote for XBMC
-  Copyright 2010 Furya-creations.net
   
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -109,11 +108,12 @@
 	  <!--<li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': false, \'addonid\': \'script.simpleplaylists\', \'params\': [ \'mode\': \'addCurrentUrl\' ]}'); return false;">Watch Later</a></li>
 	  <li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.simpleplaylists\', \'params\': [ \'mode=showPlaylists\' ]}'); return false;">View</a></li>-->
 	  <!-- <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'favourites\'}'); return false;">Favorites</a></li>-->
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>	 
+      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'wait\': true, \'addonid\': \'script.sendto\', \'params\': [ \'mode=1000\' ] }'); return false;">Change Rooms</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','VideoLibrary.Scan'); return false;">Update Library</a></li>
 	  <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
       <!--<li id="reboot"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Reboot'); return false;">Reboot</a></li>-->
+	  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'shutdownmenu\'}'); return false;">Power Menu</a></li>
       <li id="shutdown" class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;">Shutdown</a></li>
       <li id="sleep" class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','System.Suspend'); return false;">Sleep</a></li>
 	</ul>
