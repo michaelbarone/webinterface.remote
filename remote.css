@@ -375,7 +375,7 @@ a.on { background-position: 0 -29px !important; }
 
 }
 
-@media all and (max-width: 600px) and (max-height: 600px) {
+@media screen and (max-width: 721px), screen and (max-height: 721px) {
 
 	.controller_img { left:50%;margin-left:-187.5px;top:5%;	}
 	
@@ -439,9 +439,9 @@ a.on { background-position: 0 -29px !important; }
 
 	ul.iphone_ui_list {  margin: 14px;width:80%;left:5%;	}
 
-}
+/*}
 
-@media all and (max-width: 600px) and (max-height: 400px) {
+@media all and (max-width: 600px) and (max-height: 400px) {*/
  /*
  landscape mode */
 /*
