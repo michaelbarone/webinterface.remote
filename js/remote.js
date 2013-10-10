@@ -455,6 +455,11 @@ $(window).resize(function() {
 });
 
 	$(document).ready(function() {
+	
+		$(function(){
+			document.oncontextmenu = function() {return false;};
+		});	
+
 		$("#showlinks").click(function () {
 			  var div0 = document.getElementById('overlaybuttons');
 			  if (div0.style.display != 'block') {

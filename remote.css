@@ -16,7 +16,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /*   General   */
-* { -webkit-user-select: none; }
+* {
+   user-select: none !important;
+   -o-user-select:none !important;
+   -moz-user-select: none !important;
+   -khtml-user-select: none !important;
+   -webkit-user-select: none !important;
+   -webkit-touch-callout: none !important;   
+}
 
 body {
   margin: 0;

@@ -3,11 +3,9 @@ xbmc-remote
 
 an expanded remote based on  Ishiro's iRemote-for-XBMC
 
-script requirements:
-script.sendto (needed for "change rooms" button) https://github.com/robweber/script.sendto
 
-
-Required: For the "In Progress" links to work, you must copy the smart playlists in the included "required" folder to your userdata/playlists/video/ directory. (this is the master user directory, even if you use profiles)
+Required:
+   For the "In Progress" links to work, you must copy the smart playlists in the included "required" folder to your userdata/playlists/video/  directory.  (this is the master user directory, even if you use profiles)
 
 
 1.  Copy to your ./xbmc/addons/webinterface.remote   directory
@@ -18,6 +16,3 @@ Required: For the "In Progress" links to work, you must copy the smart playlists
       4. Set your Port, or leave as default 8080
       5. Select "remote" as the 'Web interface'
 3.  direct your browser to http://xbmcip:port
-
-
-please direct all comments to http://forum.xbmc.org/showthread.php?tid=169529
