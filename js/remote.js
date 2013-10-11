@@ -554,3 +554,14 @@ $(window).resize(function() {
 			 preventDefaultEvents: true
 		});
 	});
+	
+var intervalId;
+$(function(){
+  $("a.repeat").bind('mousedown touchstart', function() {
+	  clearInterval(intervalId);
+      var thefunc = $(this).attr("onclick");
+      intervalId = setInterval(function(){eval(thefunc)},200);
+  }).bind('mouseup mouseleave touchend', function() {
+	  clearInterval(intervalId);
+    });
+});	

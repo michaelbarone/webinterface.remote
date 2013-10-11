@@ -91,8 +91,8 @@
       <li id="fullscreen"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.SetFullscreen','{\'fullscreen\':\'toggle\'}'); return false;">FullScreen</a></li>
       <li id="fs1"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ShowOSD'); return false;">OSD</a></li>
       <li id="context_menu"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ContextMenu'); return false;">Context Menu</a></li>
-      <li id="voldn"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'decrement\'}'); return false;">voldn</a></li>
-      <li id="volup"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'increment\'}'); return false;">volup</a></li>
+      <li id="voldn"><a href="#" class="repeat" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'decrement\'}'); return false;">voldn</a></li>
+      <li id="volup"><a href="#" class="repeat" onclick="XbmcRequest.send('JSON-RPC','Application.SetVolume','{\'volume\':\'increment\'}'); return false;">volup</a></li>
     </ul>
     <ul id="controller_bar" class="controllerbuttons">
       <li id="back"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.Back'); return false;">Back</a></li>
