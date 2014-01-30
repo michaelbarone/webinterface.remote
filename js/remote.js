@@ -175,10 +175,10 @@ var iPhoneUI = {
   },
 
   orientation: function() {
-    if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
-      var orient = (window.orientation==0 || window.orientation==180) ? 'landscape' : 'portrait';
-      document.body.className = orient;
-    } else {
+   // if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+   //   var orient = (window.orientation==0 || window.orientation==180) ? 'landscape' : 'portrait';
+   //   document.body.className = orient;
+  //  } else {
 		if (window.innerWidth > window.innerHeight) {
 			var orient = 'landscape';
 			document.body.className = orient;
@@ -186,7 +186,7 @@ var iPhoneUI = {
 			var orient = 'portrait';
 			document.body.className = orient;
 		}
-    }
+   // }
   },
   
   toggleButton: function(id, state) {
@@ -461,6 +461,14 @@ $(window).resize(function() {
 		});	
 
 		$("#showlinks").click(function () {
+			hideOverlays();
+		});
+		
+		if ($(window).width() < 660) {
+			hideOverlays();
+		}
+		
+		function hideOverlays() {
 			  var div0 = document.getElementById('overlaybuttons');
 			  if (div0.style.display != 'block') {
 				div0.style.display = 'block';
@@ -475,7 +483,8 @@ $(window).resize(function() {
 				$("#linksselector").removeClass('hideme');
 				$("#numpad").removeClass('showme');
 				}
-		});	
+		}
+		
 
 		$("#shownumpad").click(function () {
 			  var div0 = document.getElementById('overlaybuttons');
