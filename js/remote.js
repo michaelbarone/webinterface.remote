@@ -464,7 +464,7 @@ $(window).resize(function() {
 			hideOverlays();
 		});
 		
-		if ($(window).width() < 660) {
+		if ($(window).width() < 720) {
 			hideOverlays();
 		}
 		
