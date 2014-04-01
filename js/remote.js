@@ -85,6 +85,7 @@ var XbmcRequest = {
   /* Send JSON RPC Request */
   sendJSonRPCRequest: function(method, params) {
     var executeRequest = true;
+	/*
     if(method=="System.Shutdown") {
       executeRequest = confirm("Are you sure you want to shutdown the system ?");
     }
@@ -95,7 +96,7 @@ var XbmcRequest = {
 	
     if(method=="System.Reboot") {
       executeRequest = confirm("Are you sure you want to reboot the system ?");
-    }
+    }*/
 	
     if(executeRequest) {
 	   var temp = params;
@@ -121,7 +122,6 @@ var XbmcRequest = {
     }
   }
 }
-
 
 /* iPhoneUI */
 var iPhoneUI = {
@@ -530,39 +530,169 @@ $(window).resize(function() {
 				}
 		});	
 
-		function hidecontrollerbars() {
+		function showcontrollerbars() {
 				  var div1 = document.getElementById('controller_bar2');
 				  var div2 = document.getElementById('controller_bar3');
 				  var div3 = document.getElementById('gestures_logo');
 					div1.style.display = 'block';
 					div2.style.display = 'block';
-					div3.style.bottom = '300px';
+					div3.style.bottom = '250px';
 		}
-		function showcontrollerbars() {
+		function hidecontrollerbars() {
 				  var div1 = document.getElementById('controller_bar2');
 				  var div2 = document.getElementById('controller_bar3');
 				  var div3 = document.getElementById('gestures_logo');
 					div1.style.display = 'none';
 					div2.style.display = 'none';
-					div3.style.bottom = '120px';
+					div3.style.bottom = '100px';
 		}
 
-		$("#controller_bar_swipe").touchwipe({
-			 wipeUp: function() { showcontrollerbars(); },
-			 wipeDown: function() { hidecontrollerbars(); },
-			 min_move_x: 10,
-			 min_move_y: 10,	 
-			 preventDefaultEvents: true
+		$("#mobile-button-toggle").click(function() {
+		  var div1 = document.getElementById('controller_bar2');
+			if(div1.style.display == 'none' || div1.style.display == '') {
+				showcontrollerbars();
+				$('#mobile-button-toggle').attr('src','./images/buttons-blue/arrow_down.png');
+			} else {			 
+				hidecontrollerbars();
+				$('#mobile-button-toggle').attr('src','./images/buttons/arrow_up.png');
+			}
 		});
+
+		function origbuttons() {
+			$('#mobile-button-navigation').attr('src','./images/buttons/channel-nofo.png');
+			$('#mobile-button-settings').attr('src','./images/buttons/settings-nofo.png');
+			$('#mobile-button-numpad').attr('src','./images/buttons/settings-nofo.png');
+			$('#mobile-button-jumpto').attr('src','./images/buttons/settings-nofo.png');
+		}
+		
+		$("#mobile-button-navigation").click(function() {
+		  var div1 = document.getElementById('navigation');
+			if(div1.style.display == 'none' || div1.style.display == '') {
+				origbuttons();			
+				$('#mobile-button-navigation').attr('src','./images/buttons-blue/channel-fo.png');
+				showoverlaybuttons('navigation');
+			} else {	 
+				closeOverlays();
+				origbuttons();
+			}
+		});
+
+		$("#mobile-button-settings").click(function() {
+		  var div1 = document.getElementById('settings');
+			if(div1.style.display == 'none' || div1.style.display == '') {
+				origbuttons();			
+				$('#mobile-button-settings').attr('src','./images/buttons-blue/settings-fo.png');
+				showoverlaybuttons('settings');
+			} else {	 
+				closeOverlays();
+				origbuttons();
+			}
+		});
+		
+		$("#mobile-button-numpad").click(function() {
+		  var div1 = document.getElementById('numpadnormal');
+			if(div1.style.display == 'none' || div1.style.display == '') {
+				origbuttons();			
+				$('#mobile-button-numpad').attr('src','./images/buttons-blue/settings-fo.png');
+				showoverlaybuttons('numpad');
+			} else {	 
+				closeOverlays();
+				origbuttons();
+			}
+		});
+		
+		$("#mobile-button-jumpto").click(function() {
+		  var div1 = document.getElementById('numpad');
+			var numpadsms = document.getElementById('numpadsms');				  
+			if(div1.style.display == 'none' || div1.style.display == '' || numpadsms.style.display == 'none') {
+				origbuttons();
+				$("#numpadsms").removeClass('hideme');
+				$('#mobile-button-jumpto').attr('src','./images/buttons-blue/settings-fo.png');
+				showoverlaybuttons('jumpto');
+			} else {
+				closeOverlays();
+				origbuttons();
+			}
+		});		
+
+		function closeOverlays() {
+			var navigation = document.getElementById('navigation');
+			var settings = document.getElementById('settings');
+			var numpad = document.getElementById('numpad');
+			navigation.style.display = 'none';
+			settings.style.display = 'none';
+			numpad.style.display = 'none';	
+			var numpadnormal = document.getElementById('numpadnormal');
+			var numpadsms = document.getElementById('numpadsms');	
+			numpadnormal.style.display = 'none';
+			numpadsms.style.display = 'none';	
+		}
+		
+		function showoverlaybuttons(theoverlay) {
+			var div1 = document.getElementById('overlaybuttons');
+			var navigation = document.getElementById('navigation');
+			var settings = document.getElementById('settings');
+			var numpad = document.getElementById('numpad');
+			var numpadnormal = document.getElementById('numpadnormal');
+			var numpadsms = document.getElementById('numpadsms');
 			
-		$("#controller_bar").touchwipe({
-			 wipeUp: function() { showcontrollerbars(); },
-			 wipeDown: function() { hidecontrollerbars(); },
-			 min_move_x: 10,
-			 min_move_y: 10,	 
-			 preventDefaultEvents: true
-		});
+			closeOverlays();
+
+		
+			switch (theoverlay) {
+				case 'navigation' : navigation.style.display = 'block';			
+						break;
+			
+				case 'numpad' : numpad.style.display = "block";
+						numpadsms.style.display = "none";
+						numpadnormal.style.display = "block";
+						break;			
+			
+			
+				case 'settings' : settings.style.display = "block";
+						break;			
+			
+				case 'jumpto' : numpad.style.display = "block";
+						numpadnormal.style.display = "none";
+						numpadsms.style.display = "block";
+						break;			
+				
+			
+			}
+			
+			
+			div1.style.display = "block";
+		}
+
+		
+		
 	});
+
+	$('#rebootme').confirmOn({
+			questionText: 'Are you sure you want to reboot the system ?'
+		},'click', function(e, confirmed){
+			if(confirmed) {
+				XbmcRequest.send('JSON-RPC','System.Reboot'); return false;
+			}
+		}
+	)
+	$('#powermeoff').confirmOn({
+			questionText: 'Are you sure you want to power down the system ?'
+		},'click', function(e, confirmed){
+			if(confirmed) {
+				XbmcRequest.send('JSON-RPC','System.Shutdown'); return false;
+			}
+		}
+	)
+	$('#suspendme').confirmOn({
+			questionText: 'Are you sure you want to suspend the system ?'
+		},'click', function(e, confirmed){
+			if(confirmed) {
+				XbmcRequest.send('JSON-RPC','System.Suspend'); return false;
+			}
+		}
+	)
+
 	
 var intervalId;
 $(function(){
