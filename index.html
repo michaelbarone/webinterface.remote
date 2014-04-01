@@ -42,11 +42,11 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-  <section id="add-to-homescreen" class="hidden">
+  <!--<section id="add-to-homescreen" class="hidden">
     <h1>Remote for XBMC</h1>
     <p>Welcome, you have successfully installed the remote !</p>
     <p class="add"><span>To use it, add this page to your homescreen</span></p>
-  </section>
+  </section>-->
   <section id="controller">
 	<script type="text/javascript">
 	if( $(window).width() < 600 || $(window).height() < 600)
@@ -166,26 +166,16 @@
       <li id="sleep" class="small"><a href="#" id="suspendme">Sleep</a></li>
 	</ul>
     </div>
-  </section>
   <div id="mobile-toggle-area-container">
   <ul id="mobile-toggle-area">
-	<li>
-		<img id="mobile-button-navigation" src='./images/buttons/channel-nofo.png' />
-	</li>
-	<li>
-		<img id="mobile-button-settings" src='./images/buttons/settings-nofo.png' />
-	</li>
-	<li id="thetoggle">
-		<img id="mobile-button-toggle" src='./images/buttons/arrow_up.png' style="display:none;"/>
-	</li>
-	<li>
-		<img id="mobile-button-numpad" src='./images/buttons/settings-nofo.png' />
-	</li>
-	<li>
-		<img id="mobile-button-jumpto" src='./images/buttons/settings-nofo.png' />
-	</li>	
+	<li id="mobile-button-navigation"></li>
+	<li id="mobile-button-settings"></li>
+	<li id="mobile-button-toggle" class="thetoggle"></li>
+	<li id="mobile-button-numpad"></li>
+	<li id="mobile-button-jumpto"></li>	
 	</ul>
   </div>
+</section>
   <script type="text/javascript" src="./js/remote.js"></script>
   <script>
   </script>

@@ -85,23 +85,9 @@ var XbmcRequest = {
   /* Send JSON RPC Request */
   sendJSonRPCRequest: function(method, params) {
     var executeRequest = true;
-	/*
-    if(method=="System.Shutdown") {
-      executeRequest = confirm("Are you sure you want to shutdown the system ?");
-    }
-
-    if(method=="System.Suspend") {
-      executeRequest = confirm("Are you sure you want to suspend the system ?");
-    }	
-	
-    if(method=="System.Reboot") {
-      executeRequest = confirm("Are you sure you want to reboot the system ?");
-    }*/
-	
     if(executeRequest) {
 	   var temp = params;
 	   var params2 = temp.replace(/\'/g,"\"");
-
 		$.ajax({
 				type: 'POST',
 				url: this.getServerUrl()+'/jsonrpc',
@@ -126,7 +112,7 @@ var XbmcRequest = {
 /* iPhoneUI */
 var iPhoneUI = {
   init: function() {
-    if((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) && !window.navigator.standalone) {
+  /*  if((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) && !window.navigator.standalone) {
       addClass(document.getElementById('actions'), 'hidden');
       addClass(document.getElementById('controller'), 'hidden');
       removeClass(document.getElementById('add-to-homescreen'), 'hidden');
@@ -153,9 +139,9 @@ var iPhoneUI = {
           removeClass(sections[i], 'hidden');
         }
       }
-    }
+    }*/
   },
-
+/*
   transition: function(link, backside) {
     var current = document.getElementById(link.parentNode.parentNode.parentNode.id);
     var to = document.getElementById(link.id.replace('to_',''));
@@ -173,7 +159,7 @@ var iPhoneUI = {
       addClass(current, 'hidden');
     }, 600);
   },
-
+*/
   orientation: function() {
    // if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
    //   var orient = (window.orientation==0 || window.orientation==180) ? 'landscape' : 'portrait';
@@ -371,7 +357,6 @@ var RemoteGestures = {
     // Actually we don't support gestures with 3 fingers or more
     }  
 
-	
     // Initialize values for the next event
     this.gesture.touches = 0;
     this.gesture._start = { _x: 0, _y: 0 };
@@ -551,25 +536,22 @@ $(window).resize(function() {
 		  var div1 = document.getElementById('controller_bar2');
 			if(div1.style.display == 'none' || div1.style.display == '') {
 				showcontrollerbars();
-				$('#mobile-button-toggle').attr('src','./images/buttons-blue/arrow_down.png');
+				$('#mobile-button-toggle').addClass('selected');
 			} else {			 
 				hidecontrollerbars();
-				$('#mobile-button-toggle').attr('src','./images/buttons/arrow_up.png');
+				$('#mobile-button-toggle').removeClass('selected');
 			}
 		});
 
 		function origbuttons() {
-			$('#mobile-button-navigation').attr('src','./images/buttons/channel-nofo.png');
-			$('#mobile-button-settings').attr('src','./images/buttons/settings-nofo.png');
-			$('#mobile-button-numpad').attr('src','./images/buttons/settings-nofo.png');
-			$('#mobile-button-jumpto').attr('src','./images/buttons/settings-nofo.png');
+			$('.selected').removeClass('selected');
 		}
 		
 		$("#mobile-button-navigation").click(function() {
 		  var div1 = document.getElementById('navigation');
 			if(div1.style.display == 'none' || div1.style.display == '') {
 				origbuttons();			
-				$('#mobile-button-navigation').attr('src','./images/buttons-blue/channel-fo.png');
+				$('#mobile-button-navigation').addClass('selected');
 				showoverlaybuttons('navigation');
 			} else {	 
 				closeOverlays();
@@ -581,7 +563,7 @@ $(window).resize(function() {
 		  var div1 = document.getElementById('settings');
 			if(div1.style.display == 'none' || div1.style.display == '') {
 				origbuttons();			
-				$('#mobile-button-settings').attr('src','./images/buttons-blue/settings-fo.png');
+				$('#mobile-button-settings').addClass('selected');
 				showoverlaybuttons('settings');
 			} else {	 
 				closeOverlays();
@@ -593,7 +575,7 @@ $(window).resize(function() {
 		  var div1 = document.getElementById('numpadnormal');
 			if(div1.style.display == 'none' || div1.style.display == '') {
 				origbuttons();			
-				$('#mobile-button-numpad').attr('src','./images/buttons-blue/settings-fo.png');
+				$('#mobile-button-numpad').addClass('selected');
 				showoverlaybuttons('numpad');
 			} else {	 
 				closeOverlays();
@@ -607,7 +589,7 @@ $(window).resize(function() {
 			if(div1.style.display == 'none' || div1.style.display == '' || numpadsms.style.display == 'none') {
 				origbuttons();
 				$("#numpadsms").removeClass('hideme');
-				$('#mobile-button-jumpto').attr('src','./images/buttons-blue/settings-fo.png');
+				$('#mobile-button-jumpto').addClass('selected');
 				showoverlaybuttons('jumpto');
 			} else {
 				closeOverlays();
@@ -619,11 +601,11 @@ $(window).resize(function() {
 			var navigation = document.getElementById('navigation');
 			var settings = document.getElementById('settings');
 			var numpad = document.getElementById('numpad');
+			var numpadnormal = document.getElementById('numpadnormal');
+			var numpadsms = document.getElementById('numpadsms');	
 			navigation.style.display = 'none';
 			settings.style.display = 'none';
 			numpad.style.display = 'none';	
-			var numpadnormal = document.getElementById('numpadnormal');
-			var numpadsms = document.getElementById('numpadsms');	
 			numpadnormal.style.display = 'none';
 			numpadsms.style.display = 'none';	
 		}
@@ -634,11 +616,12 @@ $(window).resize(function() {
 			var settings = document.getElementById('settings');
 			var numpad = document.getElementById('numpad');
 			var numpadnormal = document.getElementById('numpadnormal');
-			var numpadsms = document.getElementById('numpadsms');
-			
-			closeOverlays();
-
-		
+			var numpadsms = document.getElementById('numpadsms');	
+			navigation.style.display = 'none';
+			settings.style.display = 'none';
+			numpad.style.display = 'none';	
+			numpadnormal.style.display = 'none';
+			numpadsms.style.display = 'none';
 			switch (theoverlay) {
 				case 'navigation' : navigation.style.display = 'block';			
 						break;
@@ -646,26 +629,18 @@ $(window).resize(function() {
 				case 'numpad' : numpad.style.display = "block";
 						numpadsms.style.display = "none";
 						numpadnormal.style.display = "block";
-						break;			
-			
-			
+						break;
+
 				case 'settings' : settings.style.display = "block";
 						break;			
-			
+
 				case 'jumpto' : numpad.style.display = "block";
 						numpadnormal.style.display = "none";
 						numpadsms.style.display = "block";
-						break;			
-				
-			
+						break;
 			}
-			
-			
 			div1.style.display = "block";
 		}
-
-		
-		
 	});
 
 	$('#rebootme').confirmOn({
@@ -692,7 +667,6 @@ $(window).resize(function() {
 			}
 		}
 	)
-
 	
 var intervalId;
 $(function(){

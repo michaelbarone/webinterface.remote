@@ -229,6 +229,7 @@ ul.controllerbuttons {
  -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 border-radius: 20px;
+z-index:1;
 }
 
 ul.controllerbuttons li { display: block;float: left;height: 100%; }
@@ -324,6 +325,31 @@ width:25%;
 
 #navigation > #quicklinks > a { width:50px;float:left; }
 #navigation > #quicklinks > a > img { width:50px; }
+
+
+#mobile-button-navigation { background-size:40px 40px;background-image: url('./images/buttons/channel-nofo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-navigation.selected { background-image: url('./images/buttons-blue/channel-fo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-settings { background-size:40px 40px;background-image: url('./images/buttons/settings-nofo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-settings.selected { background-image: url('./images/buttons-blue/settings-fo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-numpad { background-size:40px 40px;background-image: url('./images/buttons/numpad-nofo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-numpad.selected { background-image: url('./images/buttons-blue/numpad-fo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-jumpto { background-size:40px 40px;background-image: url('./images/buttons/jumpto-nofo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-jumpto.selected { background-image: url('./images/buttons-blue/jumpto-fo.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-toggle { background-size:40px 40px;background-image: url('./images/buttons/arrow_up.png') !important;background-repeat: no-repeat !important; }
+#mobile-button-toggle.selected { background-image: url('./images/buttons-blue/arrow_down.png') !important;background-repeat: no-repeat !important; }
+
+	#mobile-toggle-area-container {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		margin: 0;
+		overflow: hidden;
+		height: 85px;
+		background-color: rgba(0,0,0,.6);
+		z-index:0;
+	}
+
+	#mobile-toggle-area { display:none; }
 
 /* ON/OFF toggle button */
 li span.label {
@@ -440,16 +466,13 @@ ul.controllerbuttons > li > a > img {
 @media screen and (max-width: 721px) and (max-height: 721px) {
 
 	#mobile-toggle-area-container {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		margin: 0;
-		overflow: hidden;
 		height: 40px;
-		background-color: rgba(0,0,0,.2);
+		background-color: rgba(0,0,0,.6);
+		z-index:0;
 	}
 
 	#mobile-toggle-area {
+		display:block;
 		top: 0;
 		width: 100%;
 		left: 0;
@@ -463,9 +486,10 @@ ul.controllerbuttons > li > a > img {
 		margin: 0px 1.5% 0;
 	}
 
-	#mobile-toggle-area > li > img {	
+	#mobile-toggle-area > li > img,#mobile-toggle-area > li {
 	cursor: pointer;
 	width:40px;
+	height:40px;
 	}
 
 	.links { padding:0 !important; }
@@ -481,7 +505,7 @@ ul.controllerbuttons > li > a > img {
 	
 	#mobile-bottom { display:block !important;position:absolute;bottom:0;width:80%;left:10%;height:60px; }
 
-	#mobile-button-toggle { display:block !important; }
+	#mobile-button-toggle { #display:block !important; }
 	
 	/*#mobile-button-toggle { display:block !important;position:absolute;bottom:0;width:40px;height:38px;margin-left:-20px;left:50%;z-index:50; }
 	*/
@@ -617,7 +641,7 @@ margin-right:0;
 width:12% !important;
 }
 
-body.landscape #mobile-toggle-area > li#thetoggle {
+body.landscape #mobile-toggle-area > li.thetoggle {
 	display:none;
 }
 
