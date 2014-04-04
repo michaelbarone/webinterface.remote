@@ -237,13 +237,13 @@ var RemoteGestures = {
         if(this.gesture.direction == 'vertical' && (this.gesture._start._y > this.gesture._stop._y) && ((this.gesture._start._y - this.gesture._threshold._y) >= this.gesture._stop._y)) {
           element.gesture.is_scrolling = true;
           XbmcRequest.send('JSON-RPC','Input.up'); // Up
-          setTimeout(function() { element.gesture.is_scrolling = false; }, 100);
+          setTimeout(function() { element.gesture.is_scrolling = false; }, 200);
           this.gesture.triggered = true;
         }
         else if(this.gesture.direction == 'vertical' && (this.gesture._start._y < this.gesture._stop._y) && ((this.gesture._start._y+this.gesture._threshold._y) <= this.gesture._stop._y)) {
           element.gesture.is_scrolling = true;
           XbmcRequest.send('JSON-RPC','Input.down'); // Down
-          setTimeout(function() { element.gesture.is_scrolling = false; }, 100);      
+          setTimeout(function() { element.gesture.is_scrolling = false; }, 200);      
           this.gesture.triggered = true;  
         }
         else if(this.gesture.direction == 'horizontal' && (this.gesture._start._x < this.gesture._stop._x) && ((this.gesture._start._x+this.gesture._threshold._x) <= this.gesture._stop._x)) {
@@ -267,13 +267,13 @@ var RemoteGestures = {
         if(this.gesture.direction == 'vertical' && (this.gesture._start._y > this.gesture._stop._y) && ((this.gesture._start._y - this.gesture._threshold._y) >= this.gesture._stop._y)) {
           element.gesture.is_scrolling = true;
           XbmcRequest.send('JSON-RPC','Input.up'); // up
-          setTimeout(function() { element.gesture.is_scrolling = false; }, 100);
+          setTimeout(function() { element.gesture.is_scrolling = false; }, 200);
           this.gesture.triggered = true;
         }
         else if(this.gesture.direction == 'vertical' && (this.gesture._start._y < this.gesture._stop._y) && ((this.gesture._start._y+this.gesture._threshold._y) <= this.gesture._stop._y)) {
           element.gesture.is_scrolling = true;
           XbmcRequest.send('JSON-RPC','Input.down'); // Down
-          setTimeout(function() { element.gesture.is_scrolling = false; }, 100);      
+          setTimeout(function() { element.gesture.is_scrolling = false; }, 200);      
           this.gesture.triggered = true;  
         }
         else if(this.gesture.direction == 'horizontal' && (this.gesture._start._x < this.gesture._stop._x) && ((this.gesture._start._x+this.gesture._threshold._x) <= this.gesture._stop._x)) {
@@ -306,6 +306,7 @@ var RemoteGestures = {
       else {
         if(this.gesture.direction == 'horizontal' && (this.gesture._start._x > this.gesture._stop._x) && ((this.gesture._start._x - this.gesture._threshold._x) >= this.gesture._stop._x))  {
           XbmcRequest.send('JSON-RPC','Input.right'); // Left
+		  		  		  alert(this.gesture._stop._x);
         }
         else if(this.gesture.direction == 'horizontal' && (this.gesture._start._x < this.gesture._stop._x) && ((this.gesture._start._x+this.gesture._threshold._x) <= this.gesture._stop._x)) {
           XbmcRequest.send('JSON-RPC','Input.left'); // Right
