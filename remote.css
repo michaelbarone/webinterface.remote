@@ -173,12 +173,8 @@ nav a {
 }
 
 nav a#showlinks { background: url('images/nav.png') no-repeat; }
-nav a#shownumpad { background: url('images/numpad.png') no-repeat;background-size:100%;position:relative;width:100%; }
-nav li:last-child { position:relative;left:40px;margin-top:-30px; }
-
 nav a#showlinks { background-position: 0px -34px; }
 nav a#showlinks.selected { background-position: 0 0; }
-nav a#shownumpad.selected { display:none; }
 
 /*   Controller   */
 section#controller { background-color: #3d3d3d;background-position: 0 0;overflow:hidden; }
