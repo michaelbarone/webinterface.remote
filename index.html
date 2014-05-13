@@ -119,10 +119,11 @@
 		<li class="big" style="clear:both;"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'videoplaylist\'}'); return false;">Now Playling</a></li>
 		<li class="small"><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'queue\'}'); return false;">Queue</a></li>
 
-		 <li><input type='text' id='thetitle' name='thetitle' placeholder='Title' style='width:35%;margin: 2% 0 0 2%;float:left;clear:both;' />
+		 <li><input type='text' id='thetitle' name='thetitle' placeholder='Title' style='width:35%;margin: 2% 0 0 2%;float:left;clear:both;z-index:999999;' />
 		  <a href="#" style="float:right;width:55%;" onclick="var thetitle = $('#thetitle').val();var themessage = $('#themessage').val();XbmcRequest.send('JSON-RPC','GUI.ShowNotification','{\'title\': \''+thetitle+'\', \'message\': \''+themessage+'\'}'); $('#thetitle').val('');$('#themessage').val('');return false;">Send Message</a>
 		  <input type='text' id='themessage' name='themessage' placeholder='Message' style='width:94%;margin: 2% 0 2% 2%;float:left;' /></li>
-		</ul>
+		<li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Addons.ExecuteAddon','{\'addonid\': \'script.securitycam\'}'); return false;">Camera</a></li>
+	  </ul>
 	  <ul id="numpad" class="links" style="float:left;padding: 50px 0 20px;">
 	  	<a href="#" id="numpadselector" onclick="return false;" class="on-off-toggle off"></a>
 		<div id="numpadnormal">
@@ -156,7 +157,7 @@
 		</div>
 	</ul>
 	<ul id="settings" class="links" style="clear:right;">
-      <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
+	  <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','Input.ExecuteAction','{\'action\': \'togglewatched\'}'); return false;">Toggle Watched</a></li>
       <li><a href="#" onclick="XbmcRequest.send('JSON-RPC','VideoLibrary.Scan'); return false;">Update Library</a></li>
 	  <li id="gestures"><span class="label">Gestures</span> <a href="#" id="gestures_toggle" onclick="Remote.gestures(); return false;" class="on-off-toggle off">On/Off</a></li>
 	  <li class="big"><a href="#" onclick="XbmcRequest.send('JSON-RPC','GUI.ActivateWindow','{\'window\':\'shutdownmenu\'}'); return false;">Power Menu</a></li>

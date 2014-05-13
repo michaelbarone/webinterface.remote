@@ -445,7 +445,7 @@ $(window).resize(function() {
 		$(function(){
 			document.oncontextmenu = function() {return false;};
 		});	
-
+/*
 		$("#showlinks").click(function () {
 			hideOverlays();
 		});
@@ -453,7 +453,7 @@ $(window).resize(function() {
 		if ($(window).width() < 720) {
 			hideOverlays();
 		}
-		
+*/		
 		function hideOverlays() {
 			  var div0 = document.getElementById('overlaybuttons');
 			  if (div0.style.display != 'block') {

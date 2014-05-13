@@ -502,25 +502,13 @@ ul.controllerbuttons > li > a > img {
 	
 	#mobile-bottom { display:block !important;position:absolute;bottom:0;width:80%;left:10%;height:60px; }
 
-	#mobile-button-toggle { #display:block !important; }
-	
-	/*#mobile-button-toggle { display:block !important;position:absolute;bottom:0;width:40px;height:38px;margin-left:-20px;left:50%;z-index:50; }
-	*/
 	nav { display:none; }
 	nav { top:initial;bottom:0px;left:30%; }
 	nav li:last-child { left:100px; }
 	
   #linksselector {
   display:none;
- # -webkit-transform: rotate(90deg);
- # -moz-transform: rotate(90deg);
- # -o-transform: rotate(90deg);
- # -ms-transform: rotate(90deg);
- # transform: rotate(90deg);
- # top:110px;
- # margin: 0 0 0 -15px !important;
- # left:0;
- bottom:10px;
+  bottom:10px;
 }
 
 	ul.links {
@@ -530,6 +518,7 @@ ul.controllerbuttons > li > a > img {
 	  top:0px;
 	  bottom:40px;
 	  position:absolute;
+	  display:none;
 	  }
 
 	#numpad.links { display:none; }
@@ -562,13 +551,7 @@ ul.controllerbuttons > li > a > img {
 	ul#controller_bar2 { bottom:105px;display:none;margin:0; }
 
 	ul#controller_bar3 { bottom:170px;display:none; }
-/*
-	.controllerbuttons > li:nth-child(1) > a { margin:20% auto 0; }
-	.controllerbuttons > li:nth-child(2) > a { margin:-5% auto 0; }
-	.controllerbuttons > li:nth-child(3) > a { margin:-20% auto 0; }
-	.controllerbuttons > li:nth-child(4) > a { margin:-5% auto 0; }
-	.controllerbuttons > li:nth-child(5) > a { margin:20% auto 0; }
-	*/
+
 	#control_bar_swipe { display:block !important;position:absolute;bottom:0;left:0;right:0;height:100px;z-index:-1; }
 
 	#header {
