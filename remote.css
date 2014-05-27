@@ -304,6 +304,16 @@ margin-left:4%;
 width:30%;
 }
 
+.links > li.small.subtitle {
+margin-left:0%;
+width:28%;
+}
+
+.links > li.small.subtitle:nth-child(2) {
+margin-left:2%;
+margin-right:2%;
+}
+
 #linksselector { position:absolute;margin:20px 10px 0 0;z-index:150; }
 
 #numpadselector { position:absolute;margin:-30px 15px 0 0;z-index:150; }
